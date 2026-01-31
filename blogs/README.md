@@ -24,15 +24,15 @@ Below are the live links for blogs which have been published on hashnode.com
 
 2. How DNS Resolution Works.
 
-- Live Link:
+- Live Link: https://howdnsresolutionworking.hashnode.dev/how-dns-resolution-works
 
 3. Understanding Network Devices.
 
-- Live Link:
+- Live Link: https://networkdevicesguide.hashnode.dev/understanding-network-devices
 
 4. Getting started with cURL.
 
-- Live Link:
+- Live Link: https://curldeepdive.hashnode.dev/getting-started-with-curl
 
 ## Client-Server Architecture:
 
