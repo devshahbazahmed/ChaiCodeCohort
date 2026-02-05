@@ -38,21 +38,21 @@ Below are the live links for blogs which have been published on hashnode.com
 
 1. TCP vs UDP: When to Use What, and How TCP Relates to HTTP.
 
-- Live Link:
+- Live Link: https://tcpvsudpexplained.hashnode.dev/tcp-vs-udp-when-to-use-what
 
 2. TCP Working: 3-Way Handshake & Reliable Communication.
 
-- Live Link:
+- Live Link: https://tcp3wayhandshake.hashnode.dev/the-tcp-3-way-handshake
 
 ## HTML:
 
 1. How a Browser Works: A Beginner-Friendly Guide to Browser Internals.
 
-- Live Link:
+- Live Link: https://browserwokingandinternals.hashnode.dev/how-a-browser-works
 
 2. Understanding HTML Tags and Elements.
 
-- Live Link:
+- Live Link: https://htmlbasicstagsandelements.hashnode.dev/understanding-html-the-foundation-of-web-design
 
 3. Emmet for HTML: A Beginner’s Guide to Writing Faster Markup.
 
