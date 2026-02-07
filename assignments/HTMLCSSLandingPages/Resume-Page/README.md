@@ -4,7 +4,7 @@
 
 This webpage represents the single-page resume website in HTML. It follows a certain layout and contains dummy information and also real information at certain places.
 
-## Important Points to Noted:
+## Important Points to be Noted:
 
 This webpage does not contains any CSS or other styling frameworks.
 
