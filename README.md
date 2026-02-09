@@ -36,16 +36,34 @@
 
 ## Tech Stack
 
--   [Git](https://git-scm.com/) – versioning
+- [Git](https://git-scm.com/) – versioning
 
--   [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML) – HTML
+- [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML) – HTML
 
--   [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS) – CSS
+- [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS) – CSS
 
--   [JS](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - JS
+- [JS](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - JS
 
 </br>
 
 ## License
 
 This project is licensed under the [MIT License](./LICENSE). &nbsp;Feel free to learn, add upon, and share my work!
+
+JavaScript hands-on labs with github:
+
+- Conditionals: https://classroom.github.com/a/fwCZoRgs
+- Datatypes Foundation: https://classroom.github.com/a/LXgTzkVh
+- Datatypes Intermediate: https://classroom.github.com/a/ARempKK3
+- Loops: https://classroom.github.com/a/pZ1cSgDU
+- Functions: https://classroom.github.com/a/o2RfZZTy
+
+Procedure to follow:
+
+- Open the link to request
+- Wait for an email to accept invitations
+- Clone your repo to local machine
+- Make code changes & test your code
+- Commit the file changes and
+- Lastly push them to your repo
+- DO NOT raise a Pull request
