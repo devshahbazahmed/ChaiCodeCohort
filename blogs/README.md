@@ -56,10 +56,10 @@ Below are the live links for blogs which have been published on hashnode.com
 
 3. Emmet for HTML: A Beginner’s Guide to Writing Faster Markup.
 
-- Live Link:
+- Live Link: https://htmlemmetfastermarkup.hashnode.dev/emmet-for-html
 
 ## CSS:
 
 1. CSS Selectors 101: Targeting Elements with Precision.
 
-- Live Link:
+- Live Link: https://cssselectorstargetingelements.hashnode.dev/css-selectors-101
