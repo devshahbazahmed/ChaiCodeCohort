@@ -63,3 +63,9 @@ Below are the live links for blogs which have been published on hashnode.com
 1. CSS Selectors 101: Targeting Elements with Precision.
 
 - Live Link: https://cssselectorstargetingelements.hashnode.dev/css-selectors-101
+
+## JavaScript:
+
+1. Understanding Promises in JavaScript.
+
+- Live Link: https://storyofpromisesinjs.hashnode.dev/understanding-promises-in-javascript
