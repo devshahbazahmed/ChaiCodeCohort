@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+main {
+  width: 100%;
+  height: 200%;
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+h1 {
+  font-size: 70px;
+  color: plum;
+  margin-top: 100px;
+}
+
+.todo-input {
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 40%;
+}
+
+.todo-input input {
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 20px;
+  width: 75%;
+}
+
+.todo-input button {
+  width: 25%;
+  padding: 10px 20px;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  background-color: palevioletred;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all ease 0.1s;
+}
+
+.todo-input button:active {
+  scale: 0.95;
+}
+
+.todos {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 10px;
+  width: 40%;
+}
+
+.todos li {
+  list-style: none;
+  font-size: 20px;
+  margin-top: 5px;
+  background-color: #001111;
+  border: 1px solid white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  width: 100%;
+  cursor: pointer;
+  transition: all ease 0.2s;
+}
+
+.todos li:hover {
+  background-color: darkred;
+  border: none;
+  outline: none;
+  scale: 0.98;
+}
