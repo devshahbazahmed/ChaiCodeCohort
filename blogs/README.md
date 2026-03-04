@@ -66,6 +66,46 @@ Below are the live links for blogs which have been published on hashnode.com
 
 ## JavaScript:
 
-1. Understanding Promises in JavaScript.
+1. Understanding Variables and Datatypes in JavaScript.
+
+- Live Link:
+
+2. JavaScript Operators: The Basics you need to know.
+
+- Live Link:
+
+3. JavaScript Arrays 101.
+
+- Live Link:
+
+4. Array Method you must Know.
+
+- Live Link:
+
+5. Understanding Objects in JavaScript.
+
+- Live Link:
+
+6. Control Flow in JavaScript: If, Else and Switch Explained.
+
+- Live Link:
+
+7. Function Declaration vs Function Expression: What's the Difference?.
+
+- Live Link:
+
+8. Arrow Functions in JavaScript: A Simpler way to write functions.
+
+- Live Link:
+
+9. The Magic of this, call(), apply() and bind() in JavaScript.
+
+- Live Link:
+
+10. Understanding Object-Oriented Programming in JavaScript.
+
+- Live Link:
+
+11. Understanding Promises in JavaScript.
 
 - Live Link: https://storyofpromisesinjs.hashnode.dev/understanding-promises-in-javascript

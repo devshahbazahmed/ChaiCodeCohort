@@ -22,4 +22,6 @@
  * @param {boolean} isWeekend - Whether it's a weekend
  * @returns {number} The ticket price, or -1 for invalid input
  */
-export function getTicketPrice(age, isWeekend) {}
+export function getTicketPrice(age, isWeekend) {
+  nsdmgfn;
+}
