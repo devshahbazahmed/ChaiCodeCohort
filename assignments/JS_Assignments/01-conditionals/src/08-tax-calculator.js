@@ -26,5 +26,30 @@
  * @returns {number} Total tax amount owed
  */
 export function calculateTax(income) {
+  if (income <= 0) return 0;
 
+  let totalTaxAmount = 0;
+  let taxPercentage = 0;
+
+  if (income >= 0 && income <= 10000) {
+    taxPercentage += 0;
+    totalTaxAmount += taxPercentage;
+  } else if (income > 10000 && income <= 30000) {
+    taxPercentage += 10;
+    totalTaxAmount = parseFloat(
+      (((income - 10000) * taxPercentage) / 100).toFixed(2),
+    );
+  } else if (income > 30000 && income <= 70000) {
+    taxPercentage += 20;
+    totalTaxAmount =
+      2000 + parseFloat((((income - 30000) * taxPercentage) / 100).toFixed(2));
+  } else if (income > 70000) {
+    taxPercentage += 30;
+    totalTaxAmount =
+      2000 +
+      8000 +
+      parseFloat((((income - 70000) * taxPercentage) / 100).toFixed(2));
+  }
+
+  return totalTaxAmount;
 }

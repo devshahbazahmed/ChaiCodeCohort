@@ -1,3 +1,5 @@
+import { Certificate } from "node:crypto";
+
 /**
  * 🅿️ City Central Parking
  *
@@ -33,5 +35,40 @@
  * @returns {number} Parking fee or -1 for invalid input
  */
 export function calculateParkingFee(hours, vehicleType) {
+  if (hours <= 0) return -1;
 
+  hours = Math.ceil(hours);
+
+  let parkingFee = 0;
+
+  const dailyMaxFee = {
+    car: 30,
+    motorcycle: 18,
+    bus: 60,
+  };
+
+  const firstHourFee = {
+    car: 5,
+    motorcycle: 3,
+    bus: 10,
+  };
+
+  if (Object.keys(firstHourFee).includes(vehicleType)) {
+    if (hours === 1) {
+      parkingFee += firstHourFee[vehicleType];
+    }
+
+    if (hours > 1) {
+      if (vehicleType === "car") {
+        parkingFee = firstHourFee[vehicleType] + (hours - 1) * 3;
+      } else if (vehicleType === "motorcycle") {
+        parkingFee = firstHourFee[vehicleType] + (hours - 1) * 2;
+      } else if (vehicleType === "bus") {
+        parkingFee = firstHourFee[vehicleType] + (hours - 1) * 7;
+      }
+    }
+  } else return -1;
+
+  if (dailyMaxFee[vehicleType] < parkingFee) return dailyMaxFee[vehicleType];
+  else return parkingFee;
 }
