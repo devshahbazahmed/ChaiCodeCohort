@@ -109,3 +109,13 @@ Below are the live links for blogs which have been published on hashnode.com
 11. Understanding Promises in JavaScript.
 
 - Live Link: https://storyofpromisesinjs.hashnode.dev/understanding-promises-in-javascript
+
+## NodeJS
+
+1. Understanding NodeJS architecture.
+
+- Live Link:
+
+2. Global vs GlobalThis in NodeJS.
+
+- Live Link:
