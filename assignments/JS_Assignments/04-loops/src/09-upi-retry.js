@@ -35,5 +35,34 @@
  *   // => { attempts: 5, success: false, totalWaitTime: 15 }
  */
 export function upiRetry(outcomes) {
-  
+  const upiTrack = {
+    attempts: 0,
+    success: false,
+    totalWaitTime: 0,
+  };
+  if (!Array.isArray(outcomes) || outcomes.length === 0) return upiTrack;
+
+  let index = 0;
+
+  do {
+    upiTrack.attempts++;
+    if (outcomes[index] === "fail") {
+      upiTrack.success = false;
+
+      if (upiTrack.attempts === 1) upiTrack.totalWaitTime += 1;
+      else if (upiTrack.attempts === 2) upiTrack.totalWaitTime += 2;
+      else if (upiTrack.attempts === 3) upiTrack.totalWaitTime += 4;
+      else if (upiTrack.attempts === 4) upiTrack.totalWaitTime += 8;
+      else if (upiTrack.attempts === 5) {
+        upiTrack.totalWaitTime = 15;
+        upiTrack.success = false;
+        break;
+      }
+    } else if (outcomes[index] === "success") {
+      upiTrack.success = true;
+    }
+    index++;
+  } while (index < outcomes.length);
+
+  return upiTrack;
 }

@@ -34,5 +34,28 @@
  *   // => { count: 2, totalDuration: 300 }
  */
 export function buildPlaylist(songs, maxDuration) {
-  
+  const playList = {
+    count: 0,
+    totalDuration: 0,
+  };
+
+  if (
+    !Array.isArray(songs) ||
+    songs.length === 0 ||
+    maxDuration <= 0 ||
+    !Number.isInteger(maxDuration)
+  )
+    return playList;
+
+  let index = 0;
+  while (index < songs.length) {
+    if (songs[index] > 0) {
+      if (playList.totalDuration + songs[index] > maxDuration) break;
+      playList.count++;
+      playList.totalDuration += songs[index];
+    }
+    index++;
+  }
+
+  return playList;
 }
