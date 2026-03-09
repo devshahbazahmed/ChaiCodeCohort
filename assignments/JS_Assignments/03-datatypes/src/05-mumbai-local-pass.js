@@ -42,5 +42,33 @@
  *   // => "INVALID PASS"
  */
 export function generateLocalPass(passenger) {
-  
+  if (
+    typeof passenger !== "object" ||
+    !passenger ||
+    passenger.name === "" ||
+    passenger.from === "" ||
+    passenger.to === "" ||
+    passenger.classType === "" ||
+    !passenger.name ||
+    !passenger.from ||
+    !passenger.to ||
+    !passenger.classType
+  )
+    return "INVALID PASS";
+
+  const passName = passenger.name.toUpperCase();
+  const lowerFrom = passenger.from.toLowerCase();
+  const passFrom = lowerFrom.charAt(0).toUpperCase() + lowerFrom.slice(1);
+  const lowerTo = passenger.to.toLowerCase();
+  const passTo = lowerTo.charAt(0).toUpperCase() + lowerTo.slice(1);
+
+  const passClassType = passenger.classType.toLowerCase();
+  if (passClassType !== "first" && passClassType !== "second")
+    return "INVALID PASS";
+
+  const passId =
+    passClassType.charAt(0).toUpperCase() +
+    lowerFrom.slice(0, 3).toUpperCase() +
+    lowerTo.slice(0, 3).toUpperCase();
+  return `MUMBAI LOCAL PASS\n---\nName: ${passName}\nFrom: ${passFrom}\nTo: ${passTo}\nClass: ${passClassType.toUpperCase()}\nPass ID: ${passId}`;
 }
