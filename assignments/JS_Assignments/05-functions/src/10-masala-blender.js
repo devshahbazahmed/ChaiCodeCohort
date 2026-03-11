@@ -53,29 +53,64 @@
  *   // => { name: "Haldi", form: "powder", packed: true, label: "Haldi Masala" }
  */
 export function pipe(...fns) {
+  return function (value) {
+    if (fns.length === 0) return value;
 
+    return fns.reduce((acc, fn) => fn(acc), value);
+  };
 }
 
 export function compose(...fns) {
+  return function (value) {
+    if (fns.length === 0) return value;
 
+    return fns.reduceRight((acc, fn) => fn(acc), value);
+  };
 }
 
 export function grind(spice) {
-
+  return { ...spice, form: "powder" };
 }
 
 export function roast(spice) {
-
+  return { ...spice, roasted: true, aroma: "strong" };
 }
 
 export function mix(spice) {
-
+  return { ...spice, mixed: true };
 }
 
 export function pack(spice) {
-
+  return { ...spice, packed: true, label: `${spice.name} Masala` };
 }
 
 export function createRecipe(steps) {
- 
+  // Identity function
+  const identity = (x) => x;
+
+  // Validation
+  if (!Array.isArray(steps) || steps.length === 0) {
+    return identity;
+  }
+
+  // Map step names to actual functions
+  const stepMap = {
+    grind,
+    roast,
+    mix,
+    pack,
+  };
+
+  // Convert step names → functions (skip unknown)
+  const fns = steps
+    .map((step) => stepMap[step])
+    .filter((fn) => typeof fn === "function");
+
+  // If no valid functions, return identity
+  if (fns.length === 0) {
+    return identity;
+  }
+
+  // Use your pipe function
+  return pipe(...fns);
 }
