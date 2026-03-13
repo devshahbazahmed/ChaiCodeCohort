@@ -68,15 +68,15 @@ Below are the live links for blogs which have been published on hashnode.com
 
 1. Understanding Variables and Datatypes in JavaScript.
 
-- Live Link:
+- Live Link: https://debunking-js.hashnode.dev/understanding-variables-and-datatypes-in-javascript
 
 2. JavaScript Operators: The Basics you need to know.
 
-- Live Link:
+- Live Link: https://debunking-js.hashnode.dev/javascript-operators
 
 3. JavaScript Arrays 101.
 
-- Live Link:
+- Live Link: https://debunking-js.hashnode.dev/javascript-arrays-101
 
 4. Array Method you must Know.
 
@@ -108,7 +108,7 @@ Below are the live links for blogs which have been published on hashnode.com
 
 11. Understanding Promises in JavaScript.
 
-- Live Link: https://storyofpromisesinjs.hashnode.dev/understanding-promises-in-javascript
+- Live Link: https://debunking-js.hashnode.dev/understanding-promises-in-javascript
 
 ## NodeJS
 
