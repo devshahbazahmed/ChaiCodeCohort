@@ -80,7 +80,7 @@ Below are the live links for blogs which have been published on hashnode.com
 
 4. Array Method you must Know.
 
-- Live Link:
+- Live Link: https://debunking-js.hashnode.dev/javascript-array-methods
 
 5. Understanding Objects in JavaScript.
 
