@@ -84,27 +84,27 @@ Below are the live links for blogs which have been published on hashnode.com
 
 5. Understanding Objects in JavaScript.
 
-- Live Link:
+- Live Link: https://debunking-js.hashnode.dev/understanding-objects-in-javascript
 
 6. Control Flow in JavaScript: If, Else and Switch Explained.
 
-- Live Link:
+- Live Link: https://debunking-js.hashnode.dev/control-flow-in-javascript
 
 7. Function Declaration vs Function Expression: What's the Difference?.
 
-- Live Link:
+- Live Link: https://debunking-js.hashnode.dev/function-declaration-vs-function-expression
 
 8. Arrow Functions in JavaScript: A Simpler way to write functions.
 
-- Live Link:
+- Live Link: https://debunking-js.hashnode.dev/arrow-functions-in-javascript
 
 9. The Magic of this, call(), apply() and bind() in JavaScript.
 
-- Live Link:
+- Live Link: https://debunking-js.hashnode.dev/the-magic-of-this-call-apply-and-bind-in-javascript
 
 10. Understanding Object-Oriented Programming in JavaScript.
 
-- Live Link:
+- Live Link: https://debunking-js.hashnode.dev/understanding-object-oriented-programming-in-javascript
 
 11. Understanding Promises in JavaScript.
 
