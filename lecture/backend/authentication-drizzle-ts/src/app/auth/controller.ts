@@ -4,6 +4,7 @@ import { signinPayloadModel, signupPayloadModel } from "./models";
 import { db } from "../../db";
 import { usersTable } from "../../db/schema";
 import { eq } from "drizzle-orm";
+import { createUserToken } from "./utils/token";
 
 class AuthenticationController {
   public async handleSignup(req: Request, res: Response) {
@@ -74,8 +75,9 @@ class AuthenticationController {
       return res.status(400).json({ message: `Invalid credentials` });
 
     // TODO: create token
+    const token = createUserToken({ id: userSelect.id });
 
-    return res.json({ message: "Signin Success", data: { token: 1 } });
+    return res.json({ message: "Signin Success", data: { token } });
   }
 }
 
