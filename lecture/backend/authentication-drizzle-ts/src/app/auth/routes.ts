@@ -10,3 +10,8 @@ authRouter.post(
   "/signup",
   authenticationController.handleSignup.bind(authenticationController)
 );
+
+authRouter.post(
+  "/signin",
+  authenticationController.handleSignin.bind(authenticationController)
+);
