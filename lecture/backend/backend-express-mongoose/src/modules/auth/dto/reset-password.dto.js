@@ -1,0 +1,17 @@
+import Joi from "joi";
+import BaseDto from "../../../common/dto/base.dto.js";
+
+class ResetPasswordDto extends BaseDto {
+  static schema = Joi.object({
+    password: Joi.string()
+      .min(8)
+      .pattern(/(?=.*[A-Z])(?=.*\d)/)
+      .required()
+      .messages({
+        "string.min": "Password must contain 8 chars minimum",
+        "any.required": "Password is required",
+      }),
+  });
+}
+
+export default ResetPasswordDto;
