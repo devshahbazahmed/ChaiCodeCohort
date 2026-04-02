@@ -72,16 +72,65 @@
  *   isLassiStand({});                       // => false
  */
 export function LassiStand(name, city) {
-  // Your code here
+  this.name = name;
+  this.city = city;
+  this.menu = [];
+  this.orders = [];
+  this._nextOrderId = 1;
 }
 
 // Add prototype methods here:
 // LassiStand.prototype.addFlavor = function(flavor, price) { ... }
+LassiStand.prototype.addFlavor = function (flavor, price) {
+  if (price <= 0) return -1;
+  if (this.menu.some((item) => item.flavor === flavor)) return -1;
+
+  this.menu.push({ flavor, price });
+  return this.menu.length;
+};
 // LassiStand.prototype.takeOrder = function(customerName, flavor, quantity) { ... }
+LassiStand.prototype.takeOrder = function (customerName, flavor, quantity) {
+  if (quantity <= 0) return -1;
+  if (this.menu.some((item) => item.flavor === flavor)) {
+    const item = this.menu.find((item) => item.flavor === flavor);
+    const total = item.price * quantity;
+    const order = {
+      id: this._nextOrderId,
+      customer: customerName,
+      flavor,
+      quantity,
+      total,
+      status: "pending",
+    };
+    this._nextOrderId++;
+    this.orders.push(order);
+    return order.id;
+  } else return -1;
+};
 // LassiStand.prototype.completeOrder = function(orderId) { ... }
+LassiStand.prototype.completeOrder = function (orderId) {
+  const order = this.orders.find((item) => item.id === orderId);
+
+  if (!order || order.status === "completed") {
+    return false;
+  } else {
+    order.status = "completed";
+    return true;
+  }
+};
 // LassiStand.prototype.getRevenue = function() { ... }
+LassiStand.prototype.getRevenue = function () {
+  const sumOfTotals = this.orders
+    .filter((order) => order.status === "completed")
+    .reduce((acc, current) => acc + current.total, 0);
+  return sumOfTotals;
+};
 // LassiStand.prototype.getMenu = function() { ... }
+LassiStand.prototype.getMenu = function () {
+  return [...this.menu];
+};
 
 export function isLassiStand(obj) {
-  // Your code here
+  if (obj instanceof LassiStand) return true;
+  else return false;
 }

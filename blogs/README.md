@@ -66,7 +66,7 @@ Below are the live links for blogs which have been published on hashnode.com
 
 13. [The `new` Keyword in JavaScript]()
 
-14. [Spread vs Rest Operators in JavaScript]()
+14. [Spread vs Rest Operators in JavaScript](https://debunking-js.hashnode.dev/spread-vs-rest-operators-in-javascript)
 
 15. [Destructuring in JavaScript]()
 
@@ -87,6 +87,8 @@ Below are the live links for blogs which have been published on hashnode.com
 23. [Synchronous and Asynchronous JavaScript]()
 
 24. [Async/Await in JavaScript: Writing Cleaner Asynchronous Code]()
+
+25. [Event Phases in DOM]()
 
 ## NodeJS
 
