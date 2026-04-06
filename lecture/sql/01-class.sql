@@ -4,7 +4,7 @@ CREATE TABLE students (
   last_name VARCHAR(40),
 
   email VARCHAR(322) UNIQUE NOT NULL,
-  phone_number VARCHAR(10) UNIQUE NOT NULL, -- 4000 bytes vs 10 bytes
+  phone_number BIGINT(10) UNIQUE NOT NULL, -- 4 bytes vs 10 bytes
   country_code VARCHAR(4),
 
   age INT CHECK (age > 12),
