@@ -33,7 +33,7 @@ CREATE TABLE internships (
   students.branch,
   internships.company_name,
   internships.role,
-  internships.stipend,
+  internships.stipend
   FROM students 
   INNER JOIN internships 
   ON students.student_id = internships.student_id;
