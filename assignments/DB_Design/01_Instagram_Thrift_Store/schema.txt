@@ -1,0 +1,91 @@
+title Instagram Thrift Creator Store
+customers [icon: user, color: blue] {
+  id serial pk
+  payment_status string
+
+  username string
+  age number
+  address string
+  phone_number number
+  instagram_username string
+  avatar_url string
+  avatar image
+  order_id serail pk
+  delivery_status string
+  createdAt timestamp
+  updatedAt timestamp
+}
+
+orders [icon: d365-intelligent-order-management, color: orange] {
+  id serial pk
+  order_date date
+  order_time timestamp
+  product_type string
+  product_price number
+}
+
+handmade_products [icon: fabric-data-warehouse, color: green] {
+  id serial pk
+  product_name string
+  product_qty number
+  product_price number
+  product_type enum(["HANDMADE", "THRIFTED"])
+  size number
+  color string
+  condition string
+  isDeliverable boolean
+}
+
+thrifted_products(single) [icon: fabric-ai, color: green] {
+  id serial pk
+  product_name string
+  product_qty number
+  product_price number
+  product_type enum(["HANDMADE", "THRIFTED"])
+  size number
+  color string
+  condition string
+  isDeliverable boolean
+}
+
+delivery [icon: car, color: yellow] {
+  id serial pk
+  order_id serial pk
+  shipping_address string
+  shipping_date date
+  courier_service string
+  shipping_status string
+}
+
+payments [icon: google-pay, color: purple] {
+  id serail pk
+  order_id serail pk
+  customer_id serial pk
+  amount_paid number
+  payment_status string
+  paid_at timestamp
+}
+
+
+payments.customer_id - customers.id: [color: "#15cae1"]
+payments.order_id - orders.id: [color: purple]
+
+
+
+
+orders.product_type > handmade_products.product_type: [color: green]
+orders.product_type > thrifted_products(single).product_type: [color: green]
+customers.order_id < orders.id: [color: "#19c3e8"]
+
+delivery.id < orders.id: [color: orange]
+delivery.shipping_status - customers.delivery_status: [color: yellow]
+
+customers.payment_status - payments.payment_status: [color: red]
+
+
+
+
+
+
+
+

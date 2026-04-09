@@ -1,0 +1,108 @@
+title Fitness Influencer Coaching Platform
+trainer [icon: user, color: blue] {
+  id serial pk
+  trainer_name VARCHAR(100)
+  trainer_certification_type VARCHAR(255)
+  trainer_fitness_club_name VARCHAR(100)
+  trainer_fitness_club_id serial pk
+  created_at timestamp
+  updated_at timestamp
+}
+
+client [icon: users, color: purple] {
+  id serial pk
+  insta_username VARCHAR(100)
+  first_name VARCHAR(100)
+  last_name VARCHAR(100)
+  address VARCHAR(255)
+  phone_number INT
+  trainer_id serial fk
+  created_at timestamp
+  updated_at timestamp
+}
+
+plans [icon: book, color: yellow] {
+  id serial pk
+  plan_type VARCHAR(100)
+  plan_description VARCHAR(255)
+  plan_start_date date
+  plan_end_date date
+  plan_price INT
+}
+
+subscriptions [icon: azure-subscriptions, color: black] {
+  id serial pk
+  client_id serial fk
+  plan_id serial fk
+  start_date date
+  end_date date
+  status VARCHAR(100)
+}
+
+payments [icon: money, color: green] {
+  id serial pk
+  subscriptions_id serial fk
+  payment_type VARCHAR(100)
+  payment_mode VARCHAR(100)
+  amount INT
+  payment_date date
+  payment_time timestamp
+  status VARCHAR(100)
+}
+
+sessions [icon: dumbbell, color: red] {
+  client_id serial fk 
+  id serial pk
+  trainer_id serial fk
+  session_duration date
+  session_start_time timestamp
+  session_end_time timestamp
+  session_type enum(["consultation", "live_session", "check_in_call"])
+}
+
+check_ins [icon: timer, color: orange] {
+  id serial pk
+  client_id serial fk
+  date date
+  progress_status VARCHAR(100)
+  weight DECIMAL
+  body_details VARCHAR(255)
+  notes VARCHAR(255)
+  reports VARCHAR(255)
+}
+
+trainer_notes [icon: sticky-note, color: lightgreen] {
+  id serial pk
+  trainer_id serial fk
+  client_id serial fk
+  note TEXT
+  created_at timestamp
+}
+
+// Trainer-client relations
+trainer.id < client.trainer_id: [color: "#5adbe8"]
+
+// Client-session relations
+client.id - sessions.client_id: [color: purple]
+
+// Client-payment relations
+client.id - payments.client_id: [color: purple]
+
+// Payment-subscription relations
+payments.subscriptions_id - subscriptions.id: [color: green]
+
+// Sessions relations
+client.id - sessions.client_id
+trainer.id - sessions.trainer_id: [color: red]
+
+// Subscriptions relations
+client.id >  subscriptions.client_id: [color: magenta]
+plans.id - subscriptions.plan_id: [color: yellow]
+
+// Check-in relations
+client.id  - check_ins.client_id: [color: orange]
+
+// Trainer-notes relations
+trainer.id - trainer_notes.trainer_id: [color: lightgreen]
+client.id - trainer_notes.client_id: [color: lightgreen]
+

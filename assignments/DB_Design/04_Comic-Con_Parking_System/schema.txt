@@ -1,0 +1,83 @@
+title Comic-Con Parking System
+vehicles [icon: car, color: blue] {
+  id serial pk
+  license_plate VARCHAR(20) UNIQUE
+  owner_name VARCHAR(100)
+  vehicle_category_id INT fk
+}
+
+vehicle_category [icon: truck, color: purple ] {
+  id serial pk
+  vehicle_type enum(["CAR", "BIKE", "CAB", "SUV", "EV"])
+}
+
+parking_zone [icon: flag, color: red] {
+  id serial pk
+  zone_name VARCHAR(50)
+  zone_level VARCHAR(50)
+}
+
+parking_spot [icon: bullseye, color: orange] {
+  id serial pk
+  zone_id INT fk
+  spot_number INT
+  is_active BOOLEAN
+  parking_spot_category_id INT fk
+}
+
+parking_spot_category [icon: suitcase, color: pink] {
+  id serial pk
+  spot_category enum(["General", "VIP", "Staff", "Cosplayer", "EV", "Exhibitor"])
+}
+
+tickets [icon: ticket, color: darkblue] {
+  id serial pk
+  ticket_number INT UNIQUE
+  issued_at timestamp
+}
+
+parking_session [icon: timer, color: black] {
+  id serial pk
+  vehicle_id INT fk
+  parking_spot_id INT fk
+  ticket_id INT fk
+  entry_time timestamp
+  exit_time timestamp
+  status enum(["ACTIVE", "COMPLETED"])
+}
+
+payments [icon: money, color: green] {
+  id serial pk
+  session_id INT fk
+  amount DECIMAL
+  payment_time timestamp
+  payment_method enum(["Cash", "Card", "UPI"])
+  payment_status enum(["Paid", "Failed", "Pending"])
+}
+
+// vehicles (One) => parking_session (Many)
+vehicles.id < parking_session.vehicle_id: [color: darkblue]
+
+// parking_spot (One) => parking_session (Many)
+parking_spot.id < parking_session.parking_spot_id
+
+// parking_zone (One) => parking_spot (Many)
+parking_zone.id > parking_spot.zone_id: [color: red]
+
+// parking_spot_category (One) => parking_spot (Many)
+parking_spot_category.id < parking_spot.parking_spot_category_id: [color: orange]
+
+// vehicle_category (One) => vehicles (Many)
+vehicle_category.id < vehicles.vehicle_category_id: [color: purple]
+
+// tickets (One) => parking_sessions (One)
+tickets.id - parking_session.ticket_id: [color: darkblue]
+
+// parking_session (One) => payment (One)
+parking_session.id - payments.session_id: [color: green]
+
+
+
+
+
+
