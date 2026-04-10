@@ -1,0 +1,102 @@
+title Smart Elevator Control
+buildings [icon: building, color: blue] {
+  id serial pk
+  building_name varchar(100) not null
+  building_location varchar(255) not null
+  created_at timestamp
+}
+
+floors [icon: flow, color: black] {
+  id serial pk
+  floor_number int not null
+  building_id int fk
+}
+
+elevator [icon: elevenlabs, color: green] {
+  id serial pk
+  building_id int fk
+  elevator_shaft_id int fk
+  floor_id int fk
+  capacity int not null
+  is_active boolean
+  created_at timestamp
+}
+
+elevator_shaft [icon: database, color: black] {
+  id serial pk
+  shaft_number int not null
+  building_id int fk
+}
+
+elevator_floor_map [icon: map, color: blue] {
+  id serial pk
+  elevator_id int fk
+  floor_id int fk
+}
+
+floor_requests [icon: command, color: red] {
+  id serial pk
+  building_id int fk
+  floor_id int fk
+  direction enum(["UP", "DOWN"])
+  status enum(["PENDING", "COMPLETED", "ASSIGNED"])
+  requested_at timestamp
+}
+
+ride_assignments [icon: package, color: yellow] {
+  id serial pk
+  elevator_id int fk
+  floor_request_id int fk
+  assigned_at timestamp
+  status enum(["ONGOING", "COMPLETED", "CANCELLED"])
+}
+
+ride_logs [icon: log, color: orange] {
+  id serial pk
+  floor_request_id int fk
+  elevator_id int fk
+  start_floor_id int fk
+  target_floor_id int fk
+  start_time timestamp
+  end_time timestamp
+}
+
+elevator_status [icon: check, color: purple] {
+  id serial pk
+  elevator_id int fk
+  status enum(["IDLE", "MOVING", "MAINTENANCE", "OUT_OF_SERVCIE"])
+  updated_at timestamp
+}
+
+maintenance_logs [icon: azure-maintenance-configuration, color: red] {
+  id serial pk
+  elevator_id int fk
+  issue_log varchar(255) not null
+  start_time timestamp
+  end_time timestamp
+  status enum(["OPEN", "COMPLETED", "IN_PROGRESS"])
+  created_at timestamp
+}
+
+// Building relationships:
+buildings.id < floors.building_id: [color: "green"]
+buildings.id < elevator.building_id: [color: "green"]
+buildings.id < elevator_shaft.building_id: [color: "green"]
+
+// Floor-Request relationsships:
+floor_requests.id < ride_logs.floor_request_id: [color: "yellow"]
+floor_requests.id < ride_assignments.floor_request_id: [color: "yellow"]
+
+// Elevator realtionships:
+elevator.id < ride_assignments.elevator_id: [color: "orange"]
+elevator.id < ride_logs.elevator_id: [color: "orange"]
+elevator.id < maintenance_logs.elevator_id: [color: "orange"]
+elevator.id < elevator_status.elevator_id: [color: "orange"]
+elevator.id - elevator_floor_map.elevator_id: [color: "orange"]
+
+// Floors relationships:
+elevator.floor_id > floors.id: [color: "magenta"]
+elevator_floor_map.floor_id > floors.id: [color: "magenta"]
+floor_requests.floor_id > floors.id: [color: "magenta"]
+ride_logs.start_floor_id - floors.id: [color: "magenta"]
+ride_logs.target_floor_id - floors.id: [color: "magenta"]
