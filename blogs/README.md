@@ -92,6 +92,36 @@ Below are the live links for blogs which have been published on hashnode.com
 
 ## NodeJS
 
-1. [Understanding NodeJS architecture]()
+1. [What is Node.js? JavaScript on the Server Explained]()
 
-2. [Global vs GlobalThis in NodeJS]()
+2. [Why Node.js is Perfect for Building fast Web Applications]()
+
+3. [Understanding NodeJS architecture]()
+
+4. [Global vs GlobalThis in Node.js]()
+
+5. [How Node.js Handles Multiple Requests with a Single Thread]()
+
+6. [The Node.js Event Loop Explained]()
+
+7. [Blocking vs Non-blocking Code in Node.js]()
+
+8. [Setting Up your first Node.js Application Step-by-Step]()
+
+9. [Async Code in Node.js: Callbacks and Promises]()
+
+10. [REST API Design Made Simple with Express.js]()
+
+11. [Creating Routes and Handling Requests with Express]()
+
+12. [URL Parameters vs Query Strings in Express.js]()
+
+13. [What is Middlewares in Express and How it Works]()
+
+14. [JWT Authentication in Node.js Explained Simply]()
+
+15. [Sessions vs JWT vs Cookies: Understanding Authentication Approaches]()
+
+16. [Handling File Uploads in Express with Multer]()
+
+17. [Storing Uploaded Files and Serving Them in Express]()
