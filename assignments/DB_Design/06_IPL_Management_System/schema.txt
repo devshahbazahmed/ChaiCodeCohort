@@ -1,0 +1,79 @@
+title IPL Management System
+teams [icon: teams, color: red] {
+  id serial pk
+  team_name varchar(100) unique not null
+  team_description text 
+  team_size int
+  total_team_amount int
+}
+
+players [icon: user, color: blue] {
+  id serial pk
+  player_name varchar(100) not null
+  team_id int fk
+  player_age int
+  role varchar(100) not null
+  description text
+  created_at timestamp
+  updated_at timestamp
+}
+
+player_stats [icon: book-open, color: yellow] {
+  id serial pk
+  player_id int fk
+  player_type enum(["BATSMAN", "BOWLER", "ALL_ROUNDER", "WICKET_KEEPER", "CAPTAIN"])
+  player_auction_price int
+}
+
+coaches [icon: chair, color: magenta] {
+  id serail pk
+  coach_name varchar(100) not null
+  team_id int fk
+  coach_age int
+  coach_stats text
+  coach_type enum(["BATSMAN", "BOWLER", "ALL_ROUNDER", "WICKET_KEEPER"])
+  experience_in_years int
+  coach_price int
+  created_at timestamp
+  updated_at timestamp
+}
+
+owners [icon: user-secret, color: green] {
+  id serial pk
+  team_id int fk
+  owner_name varchar(100) not null
+  owner_age int
+  created_at timestamp
+  updated_at timestamp
+}
+
+sponsors [icon: money, color: orange] {
+  id serial pk
+  team_id int fk
+  sponsor_name varchar(100) not null
+  sponsor_type text
+  amount_invested int
+  created_at timestamp
+  updated_at timestamp
+}
+
+broadcaster [icon: tv, color: black] {
+  id serial pk
+  team_id int fk
+  broadcaster_name varchar(100) not null
+  broadcaster_type text
+  broadcast_time timestamp
+}
+
+players.id - player_stats.player_id
+
+teams.id < coaches.team_id
+
+teams.id < players.team_id
+
+teams.id < owners.team_id
+
+teams.id < sponsors.team_id
+
+teams.id <> broadcaster.team_id
+
