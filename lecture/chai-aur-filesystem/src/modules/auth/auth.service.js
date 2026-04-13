@@ -11,6 +11,8 @@ import {
   sendVerificationEmail,
   sendResetPasswordEmail,
 } from "../../common/config/email.js";
+import fs from "node:fs";
+import imagekit from "../../common/config/imagekit.js";
 
 // Hash refresh token before storing — same approach as reset tokens
 const hashToken = (token) =>
@@ -104,11 +106,11 @@ const verifyEmail = async (token) => {
   // so we also try a direct match on the stored value.
   const hashedInput = hashToken(trimmed);
   let user = await User.findOne({ verificationToken: hashedInput }).select(
-    "+verificationToken",
+    "+verificationToken"
   );
   if (!user) {
     user = await User.findOne({ verificationToken: trimmed }).select(
-      "+verificationToken",
+      "+verificationToken"
     );
   }
   if (!user) throw ApiError.badRequest("Invalid or expired verification token");
@@ -160,6 +162,35 @@ const getMe = async (userId) => {
   return user;
 };
 
+const avatarUpload = async (userId, file) => {
+  try {
+    const fileStream = fs.createReadStream(file.path);
+    const uploadResponse = await imagekit.files.upload({
+      file: fileStream,
+      fileName: file.filename,
+      folder: "/user-avatars",
+    });
+
+    await User.findById(userId, { avatar: uploadResponse.url }, { new: true });
+
+    fs.unlinkSync(file.path);
+    return {
+      url: uploadResponse.url,
+      fileId: uploadResponse.fileId,
+    };
+  } catch (error) {
+    try {
+      if (file.path && fs.existsSync(file.path)) {
+        fs.unlinkSync(file.path);
+      }
+    } catch (error) {
+      console.error("Error in deleting temp file: ", error);
+    }
+
+    throw error;
+  }
+};
+
 export {
   register,
   login,
@@ -169,4 +200,5 @@ export {
   forgotPassword,
   resetPassword,
   getMe,
+  avatarUpload,
 };
