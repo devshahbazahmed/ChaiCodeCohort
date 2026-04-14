@@ -6,6 +6,7 @@ import ownerRoutes from "./modules/ipl-ms/routes/owner.routes.js";
 import teamRoutes from "./modules/ipl-ms/routes/team.routes.js";
 import sponsorRoutes from "./modules/ipl-ms/routes/sponsor.routes.js";
 import broadcasterRoutes from "./modules/ipl-ms/routes/broadcaster.routes.js";
+import playerRoutes from "./modules/ipl-ms/routes/players.routes.js";
 // import multer from "multer";
 // import ApiResponse from "./common/utils/api-response.js";
 // import path from "node:path";
@@ -97,6 +98,7 @@ app.use("/api/owners", ownerRoutes);
 app.use("/api/teams", teamRoutes);
 app.use("/api/sponsors", sponsorRoutes);
 app.use("/api/broadcasters", broadcasterRoutes);
+app.use("/api/players", playerRoutes);
 
 // Catch-all for undefined routes
 app.all("{*path}", (req, res) => {
