@@ -3,6 +3,11 @@ import Owner from "../models/owner.model.js";
 import ApiError from "../../../common/utils/api-error.js";
 
 const createTeam = async ({ name, ownerId }) => {
+  const owner = await Owner.findById(ownerId);
+  if (!owner) {
+    throw ApiError.notfound("Owner not found");
+  }
+
   const team = await Team.create({
     name,
     ownerId,
@@ -31,6 +36,18 @@ const getTeamById = async (id) => {
   return team;
 };
 
+const getTeamsByOwners = async (ownerId) => {
+  const owner = await Owner.findById(ownerId);
+  if (!owner) {
+    throw ApiError.notfound("Owner not found");
+  }
+  const teams = await Team.find({ ownerId });
+  if (!teams) {
+    throw ApiError.notfound("Teams not found");
+  }
+  return teams;
+};
+
 const updateTeam = async (id, { name }) => {
   const updatedTeam = await Team.findByIdAndUpdate(
     id,
@@ -51,4 +68,11 @@ const deleteTeam = async (id) => {
   return deletedTeam;
 };
 
-export { createTeam, getAllTeams, getTeamById, updateTeam, deleteTeam };
+export {
+  createTeam,
+  getAllTeams,
+  getTeamById,
+  getTeamsByOwners,
+  updateTeam,
+  deleteTeam,
+};

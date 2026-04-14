@@ -9,6 +9,8 @@ router.get("/", controller.getAllTeams);
 
 router.get("/:id", controller.getTeamById);
 
+router.get("/:ownerId", controller.getTeamsByOwners);
+
 router.put("/:id", controller.updateTeam);
 
 router.delete("/:id", controller.deleteTeam);

@@ -16,6 +16,11 @@ const getTeamById = async (req, res) => {
   return ApiResponse.ok(res, "Team fetched successfully", team);
 };
 
+const getTeamsByOwners = async (req, res) => {
+  const teams = await teamServices.getTeamsByOwners(req.params.ownerId);
+  return ApiResponse.ok(res, "Teams fetched successfully", teams);
+};
+
 const updateTeam = async (req, res) => {
   const updatedTeam = await teamServices.updateTeam(req.params.id, req.body);
   return ApiResponse.ok(res, "Team updated successfully", updatedTeam);
@@ -26,4 +31,11 @@ const deleteTeam = async (req, res) => {
   return ApiResponse.ok(res, "Team deleted successfully");
 };
 
-export { createTeam, getAllTeams, getTeamById, updateTeam, deleteTeam };
+export {
+  createTeam,
+  getAllTeams,
+  getTeamById,
+  getTeamsByOwners,
+  updateTeam,
+  deleteTeam,
+};

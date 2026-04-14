@@ -24,6 +24,21 @@ const attachSponsor = async ({ teamId, sponsorId }) => {
   return teamSponsor;
 };
 
-const detachSponsor = async ({ teamId, sponsorId }) => {};
+const detachSponsor = async ({ teamId, sponsorId }) => {
+  const team = await Team.findById(teamId);
+  if (!team) {
+    throw ApiError.notfound("Team not found");
+  }
+  const sponsor = await Sponsor.findById(sponsorId);
+  if (!sponsor) {
+    throw ApiError.notfound("Sponsor not found");
+  }
+  const existing = await TeamSponsor.findOneAndDelete({ teamId, sponsorId });
+
+  if (!existing) {
+    throw ApiError.conflict("Sponsor already attached to this team");
+  }
+  return existing;
+};
 
 export { attachSponsor, detachSponsor };

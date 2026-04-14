@@ -25,6 +25,25 @@ const assignBroadcaster = async ({ teamId, broadcasterId }) => {
   return teamBroadcaster;
 };
 
-const unassignBroadcaster = async ({ teamId, broadcasterId }) => {};
+const unassignBroadcaster = async ({ teamId, broadcasterId }) => {
+  const team = await Team.findById(teamId);
+  if (!team) {
+    throw ApiError.notfound("Team not found");
+  }
+  const broadcaster = await Broadcaster.findById(broadcasterId);
+  if (!broadcaster) {
+    throw ApiError.notfound("Broadcaster not found");
+  }
 
-export { assignBroadcaster };
+  const existing = await TeamBroadcaster.findOneAndDelete({
+    teamId,
+    broadcasterId,
+  });
+  if (!existing) {
+    throw ApiError.notfound("Broadcaster not assigned to this team");
+  }
+
+  return existing;
+};
+
+export { assignBroadcaster, unassignBroadcaster };
