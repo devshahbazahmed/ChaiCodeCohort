@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CinePass</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap");
+
+      body {
+        font-family: "Space Grotesk", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(251,191,36,0.16),_transparent_25%),linear-gradient(135deg,#0f172a_0%,#111827_50%,#020617_100%)] text-slate-100">
+    <main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <section class="mb-8 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
+        <div class="overflow-hidden rounded-[2rem] border border-white/10 bg-slate-900/70 p-8 shadow-2xl shadow-amber-950/20 backdrop-blur">
+          <div class="mb-8 flex items-center justify-between">
+            <div>
+              <p class="mb-2 text-sm uppercase tracking-[0.4em] text-amber-300/80">
+                CinePass
+              </p>
+              <h1 class="max-w-xl text-4xl font-bold leading-tight sm:text-5xl">
+                Book your next movie night with a clean auth flow.
+              </h1>
+            </div>
+            <div class="hidden h-16 w-16 rounded-3xl border border-amber-300/20 bg-amber-300/10 lg:block"></div>
+          </div>
+
+          <div class="grid gap-4 sm:grid-cols-3">
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <p class="text-sm text-slate-400">Secure login</p>
+              <p class="mt-2 text-lg font-semibold">JWT protected flow</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <p class="text-sm text-slate-400">Fast booking</p>
+              <p class="mt-2 text-lg font-semibold">Reserve seats in one tap</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <p class="text-sm text-slate-400">Personal dashboard</p>
+              <p class="mt-2 text-lg font-semibold">Track your bookings</p>
+            </div>
+          </div>
+
+          <div class="mt-8 rounded-[1.5rem] border border-white/10 bg-gradient-to-br from-amber-400/15 via-orange-300/5 to-transparent p-6">
+            <div class="flex flex-wrap items-center gap-3 text-sm text-slate-300">
+              <span class="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-emerald-300">
+                Register
+              </span>
+              <span class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-cyan-300">
+                Login
+              </span>
+              <span class="rounded-full border border-rose-400/20 bg-rose-400/10 px-3 py-1 text-rose-300">
+                Book seats
+              </span>
+            </div>
+            <p class="mt-4 max-w-2xl text-sm leading-7 text-slate-300">
+              Create an account, sign in, and book seats against the protected backend APIs.
+              The page stays usable on mobile while keeping the dashboard and auth experience
+              in one place.
+            </p>
+          </div>
+        </div>
+
+        <div class="rounded-[2rem] border border-white/10 bg-slate-900/80 p-6 shadow-2xl shadow-black/30 backdrop-blur">
+          <div class="mb-6 flex rounded-2xl border border-white/10 bg-slate-950/70 p-1">
+            <button
+              id="login-tab"
+              type="button"
+              class="flex-1 rounded-xl px-4 py-3 text-sm font-semibold transition"
+            >
+              Login
+            </button>
+            <button
+              id="register-tab"
+              type="button"
+              class="flex-1 rounded-xl px-4 py-3 text-sm font-semibold transition"
+            >
+              Register
+            </button>
+          </div>
+
+          <div
+            id="auth-message"
+            class="mb-5 hidden rounded-2xl border px-4 py-3 text-sm"
+          ></div>
+
+          <form id="login-form" class="space-y-4">
+            <div>
+              <label class="mb-2 block text-sm text-slate-300" for="login-email">Email</label>
+              <input
+                id="login-email"
+                type="email"
+                required
+                class="w-full rounded-2xl border border-white/10 bg-slate-950/80 px-4 py-3 outline-none transition placeholder:text-slate-500 focus:border-cyan-400"
+                placeholder="you@example.com"
+              />
+            </div>
+            <div>
+              <label class="mb-2 block text-sm text-slate-300" for="login-password">Password</label>
+              <input
+                id="login-password"
+                type="password"
+                required
+                class="w-full rounded-2xl border border-white/10 bg-slate-950/80 px-4 py-3 outline-none transition placeholder:text-slate-500 focus:border-cyan-400"
+                placeholder="Enter your password"
+              />
+            </div>
+            <button
+              type="submit"
+              class="w-full rounded-2xl bg-cyan-400 px-4 py-3 font-bold text-slate-950 transition hover:bg-cyan-300"
+            >
+              Login to account
+            </button>
+          </form>
+
+          <form id="register-form" class="hidden space-y-4">
+            <div>
+              <label class="mb-2 block text-sm text-slate-300" for="register-name">Full name</label>
+              <input
+                id="register-name"
+                type="text"
+                required
+                class="w-full rounded-2xl border border-white/10 bg-slate-950/80 px-4 py-3 outline-none transition placeholder:text-slate-500 focus:border-amber-400"
+                placeholder="Aarav Sharma"
+              />
+            </div>
+            <div>
+              <label class="mb-2 block text-sm text-slate-300" for="register-email">Email</label>
+              <input
+                id="register-email"
+                type="email"
+                required
+                class="w-full rounded-2xl border border-white/10 bg-slate-950/80 px-4 py-3 outline-none transition placeholder:text-slate-500 focus:border-amber-400"
+                placeholder="aarav@example.com"
+              />
+            </div>
+            <div>
+              <label class="mb-2 block text-sm text-slate-300" for="register-password">Password</label>
+              <input
+                id="register-password"
+                type="password"
+                required
+                minlength="6"
+                class="w-full rounded-2xl border border-white/10 bg-slate-950/80 px-4 py-3 outline-none transition placeholder:text-slate-500 focus:border-amber-400"
+                placeholder="Create a strong password"
+              />
+            </div>
+            <button
+              type="submit"
+              class="w-full rounded-2xl bg-amber-400 px-4 py-3 font-bold text-slate-950 transition hover:bg-amber-300"
+            >
+              Create account
+            </button>
+          </form>
+
+          <div id="session-card" class="hidden">
+            <div class="rounded-[1.5rem] border border-emerald-400/20 bg-emerald-400/10 p-5">
+              <p class="text-sm uppercase tracking-[0.3em] text-emerald-300/80">Signed in</p>
+              <h2 id="session-name" class="mt-3 text-2xl font-bold"></h2>
+              <p id="session-email" class="mt-1 text-sm text-slate-300"></p>
+              <button
+                id="logout-button"
+                type="button"
+                class="mt-5 rounded-2xl bg-rose-500 px-4 py-3 text-sm font-bold text-white transition hover:bg-rose-400"
+              >
+                Logout
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid gap-6 lg:grid-cols-[1fr_0.85fr]">
+        <div class="rounded-[2rem] border border-white/10 bg-slate-900/70 p-6 backdrop-blur">
+          <div class="mb-5 flex items-center justify-between gap-3">
+            <div>
+              <p class="text-sm uppercase tracking-[0.3em] text-slate-400">Now showing</p>
+              <h2 class="text-2xl font-bold">Movies</h2>
+            </div>
+            <div
+              id="viewer-status"
+              class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300"
+            >
+              Browse as guest
+            </div>
+          </div>
+
+          <div id="movies" class="grid gap-4 md:grid-cols-2"></div>
+        </div>
+
+        <div class="rounded-[2rem] border border-white/10 bg-slate-900/70 p-6 backdrop-blur">
+          <div class="mb-5 flex items-center justify-between gap-3">
+            <div>
+              <p class="text-sm uppercase tracking-[0.3em] text-slate-400">Account</p>
+              <h2 class="text-2xl font-bold">My Bookings</h2>
+            </div>
+            <button
+              id="refresh-bookings"
+              type="button"
+              class="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200 transition hover:bg-white/10"
+            >
+              Refresh
+            </button>
+          </div>
+
+          <div
+            id="bookings-message"
+            class="mb-4 rounded-2xl border border-dashed border-white/10 bg-slate-950/60 px-4 py-3 text-sm text-slate-400"
+          >
+            Login to see and manage your booked seats.
+          </div>
+          <div id="my-bookings" class="space-y-3"></div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const loginTab = document.getElementById("login-tab");
+      const registerTab = document.getElementById("register-tab");
+      const loginForm = document.getElementById("login-form");
+      const registerForm = document.getElementById("register-form");
+      const authMessage = document.getElementById("auth-message");
+      const sessionCard = document.getElementById("session-card");
+      const sessionName = document.getElementById("session-name");
+      const sessionEmail = document.getElementById("session-email");
+      const logoutButton = document.getElementById("logout-button");
+      const viewerStatus = document.getElementById("viewer-status");
+      const moviesEl = document.getElementById("movies");
+      const bookingsEl = document.getElementById("my-bookings");
+      const bookingsMessage = document.getElementById("bookings-message");
+      const refreshBookingsButton = document.getElementById("refresh-bookings");
+
+      const authState = {
+        mode: "login",
+        token: localStorage.getItem("token") || "",
+        user: null,
+      };
+
+      function setActiveTab(mode) {
+        authState.mode = mode;
+        const loginActive = mode === "login";
+
+        loginTab.className = `flex-1 rounded-xl px-4 py-3 text-sm font-semibold transition ${
+          loginActive
+            ? "bg-cyan-400 text-slate-950"
+            : "text-slate-400 hover:text-white"
+        }`;
+        registerTab.className = `flex-1 rounded-xl px-4 py-3 text-sm font-semibold transition ${
+          !loginActive
+            ? "bg-amber-400 text-slate-950"
+            : "text-slate-400 hover:text-white"
+        }`;
+
+        loginForm.classList.toggle("hidden", !loginActive);
+        registerForm.classList.toggle("hidden", loginActive);
+      }
+
+      function showAuthMessage(message, type = "info") {
+        const styles = {
+          info: "border-slate-700 bg-slate-950/70 text-slate-300",
+          success: "border-emerald-400/30 bg-emerald-400/10 text-emerald-200",
+          error: "border-rose-400/30 bg-rose-400/10 text-rose-200",
+        };
+
+        authMessage.className = `mb-5 rounded-2xl border px-4 py-3 text-sm ${styles[type] || styles.info}`;
+        authMessage.textContent = message;
+        authMessage.classList.remove("hidden");
+      }
+
+      function clearAuthMessage() {
+        authMessage.classList.add("hidden");
+        authMessage.textContent = "";
+      }
+
+      function updateSessionUi() {
+        const isLoggedIn = Boolean(authState.token && authState.user);
+
+        sessionCard.classList.toggle("hidden", !isLoggedIn);
+        loginTab.parentElement.classList.toggle("hidden", isLoggedIn);
+        loginForm.classList.toggle("hidden", isLoggedIn || authState.mode !== "login");
+        registerForm.classList.toggle("hidden", isLoggedIn || authState.mode !== "register");
+
+        if (isLoggedIn) {
+          sessionName.textContent = authState.user.name;
+          sessionEmail.textContent = authState.user.email;
+          viewerStatus.textContent = `Logged in as ${authState.user.name}`;
+        } else {
+          viewerStatus.textContent = "Browse as guest";
+        }
+      }
+
+      function getToken() {
+        return authState.token;
+      }
+
+      async function hydrateSession() {
+        if (!authState.token) {
+          authState.user = null;
+          updateSessionUi();
+          return;
+        }
+
+        try {
+          const res = await fetch("/api/auth/me", {
+            headers: { Authorization: `Bearer ${authState.token}` },
+          });
+          const data = await res.json();
+
+          if (!res.ok || !data.success) {
+            localStorage.removeItem("token");
+            authState.token = "";
+            authState.user = null;
+          } else {
+            authState.user = data.data;
+          }
+        } catch (error) {
+          authState.user = null;
+        }
+
+        updateSessionUi();
+      }
+
+      async function loadMovies() {
+        moviesEl.innerHTML =
+          '<div class="rounded-2xl border border-white/10 bg-slate-950/70 p-4 text-slate-400">Loading movies...</div>';
+
+        try {
+          const res = await fetch("/api/movies");
+          const data = await res.json();
+
+          if (!res.ok || !data.success) {
+            moviesEl.innerHTML =
+              '<div class="rounded-2xl border border-rose-400/20 bg-rose-400/10 p-4 text-rose-200">Could not load movies.</div>';
+            return;
+          }
+
+          moviesEl.innerHTML = data.data
+            .map(
+              (movie) => `
+                <article class="rounded-[1.5rem] border border-white/10 bg-slate-950/80 p-5 shadow-lg shadow-black/20">
+                  <div class="flex items-start justify-between gap-4">
+                    <div>
+                      <h3 class="text-xl font-bold">${movie.title}</h3>
+                      <p class="mt-1 text-sm text-slate-400">${movie.genre || "Genre N/A"} • ${movie.language || "Language N/A"}</p>
+                    </div>
+                    <span class="rounded-full border border-amber-300/20 bg-amber-300/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-amber-200">
+                      ${movie.duration_mins || "--"} min
+                    </span>
+                  </div>
+                  <div class="mt-5 flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
+                    <div>
+                      <p class="text-xs uppercase tracking-[0.2em] text-slate-500">Seats left</p>
+                      <p class="mt-1 text-lg font-semibold">${movie.available_seats}/${movie.total_seats}</p>
+                    </div>
+                    <button
+                      type="button"
+                      class="rounded-2xl bg-amber-400 px-4 py-3 text-sm font-bold text-slate-950 transition hover:bg-amber-300"
+                      onclick="bookSeat(${movie.id}, '${movie.title.replace(/'/g, "\\'")}')"
+                    >
+                      Book Seat
+                    </button>
+                  </div>
+                </article>
+              `
+            )
+            .join("");
+        } catch (error) {
+          moviesEl.innerHTML =
+            '<div class="rounded-2xl border border-rose-400/20 bg-rose-400/10 p-4 text-rose-200">Network error while loading movies.</div>';
+        }
+      }
+
+      async function loadMyBookings() {
+        const token = getToken();
+
+        if (!token) {
+          bookingsMessage.textContent = "Login to see and manage your booked seats.";
+          bookingsEl.innerHTML = "";
+          return;
+        }
+
+        bookingsMessage.textContent = "Loading your bookings...";
+
+        try {
+          const res = await fetch("/api/bookings/my", {
+            headers: { Authorization: `Bearer ${token}` },
+          });
+          const data = await res.json();
+
+          if (!res.ok || !data.success) {
+            bookingsMessage.textContent = data.message || "Could not load bookings.";
+            bookingsEl.innerHTML = "";
+            return;
+          }
+
+          if (data.data.length === 0) {
+            bookingsMessage.textContent = "You have not booked any seats yet.";
+            bookingsEl.innerHTML = "";
+            return;
+          }
+
+          bookingsMessage.textContent = `You have ${data.data.length} active booking${data.data.length > 1 ? "s" : ""}.`;
+          bookingsEl.innerHTML = data.data
+            .map(
+              (booking) => `
+                <article class="flex items-center justify-between gap-4 rounded-[1.5rem] border border-white/10 bg-slate-950/80 p-4">
+                  <div>
+                    <p class="text-lg font-semibold">${booking.title}</p>
+                    <p class="mt-1 text-sm text-slate-400">Seat ${booking.seat_number}</p>
+                    <p class="mt-1 text-xs uppercase tracking-[0.2em] text-slate-500">Movie ID ${booking.movie_id}</p>
+                  </div>
+                  <button
+                    type="button"
+                    class="rounded-2xl bg-rose-500 px-4 py-3 text-sm font-bold transition hover:bg-rose-400"
+                    onclick="cancelBooking(${booking.id})"
+                  >
+                    Cancel
+                  </button>
+                </article>
+              `
+            )
+            .join("");
+        } catch (error) {
+          bookingsMessage.textContent = "Network error while loading bookings.";
+          bookingsEl.innerHTML = "";
+        }
+      }
+
+      async function bookSeat(movieId, movieTitle) {
+        const token = getToken();
+
+        if (!token) {
+          showAuthMessage("Login first to book seats.", "error");
+          setActiveTab("login");
+          updateSessionUi();
+          return;
+        }
+
+        const seatNumber = window.prompt(`Enter a seat number for ${movieTitle}`, "A1");
+        if (!seatNumber) return;
+
+        const res = await fetch("/api/bookings", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ movie_id: movieId, seat_number: seatNumber }),
+        });
+
+        const data = await res.json();
+        showAuthMessage(data.message || "Request completed.", res.ok ? "success" : "error");
+        await loadMovies();
+        await loadMyBookings();
+      }
+
+      async function cancelBooking(id) {
+        const token = getToken();
+        if (!token) return;
+
+        const res = await fetch(`/api/bookings/${id}`, {
+          method: "DELETE",
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        const data = await res.json();
+        showAuthMessage(data.message || "Request completed.", res.ok ? "success" : "error");
+        await loadMovies();
+        await loadMyBookings();
+      }
+
+      loginForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        clearAuthMessage();
+
+        const email = document.getElementById("login-email").value.trim();
+        const password = document.getElementById("login-password").value;
+
+        const res = await fetch("/api/auth/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password }),
+        });
+        const data = await res.json();
+
+        if (!res.ok || !data.success) {
+          showAuthMessage(data.message || "Login failed.", "error");
+          return;
+        }
+
+        authState.token = data.data.token;
+        authState.user = data.data.user;
+        localStorage.setItem("token", authState.token);
+        loginForm.reset();
+        showAuthMessage(`Welcome back, ${authState.user.name}.`, "success");
+        updateSessionUi();
+        await loadMovies();
+        await loadMyBookings();
+      });
+
+      registerForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        clearAuthMessage();
+
+        const name = document.getElementById("register-name").value.trim();
+        const email = document.getElementById("register-email").value.trim();
+        const password = document.getElementById("register-password").value;
+
+        const res = await fetch("/api/auth/register", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email, password }),
+        });
+        const data = await res.json();
+
+        if (!res.ok || !data.success) {
+          showAuthMessage(data.message || "Registration failed.", "error");
+          return;
+        }
+
+        registerForm.reset();
+        showAuthMessage("Registration successful. You can login now.", "success");
+        setActiveTab("login");
+        updateSessionUi();
+      });
+
+      loginTab.addEventListener("click", () => {
+        clearAuthMessage();
+        setActiveTab("login");
+        updateSessionUi();
+      });
+
+      registerTab.addEventListener("click", () => {
+        clearAuthMessage();
+        setActiveTab("register");
+        updateSessionUi();
+      });
+
+      logoutButton.addEventListener("click", async () => {
+        localStorage.removeItem("token");
+        authState.token = "";
+        authState.user = null;
+        showAuthMessage("You have been logged out.", "info");
+        setActiveTab("login");
+        updateSessionUi();
+        await loadMyBookings();
+      });
+
+      refreshBookingsButton.addEventListener("click", loadMyBookings);
+
+      setActiveTab("login");
+      hydrateSession().then(async () => {
+        await loadMovies();
+        await loadMyBookings();
+      });
+    </script>
+  </body>
+</html>
