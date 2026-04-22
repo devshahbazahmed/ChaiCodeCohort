@@ -62,15 +62,15 @@ Below are the live links for blogs which have been published on hashnode.com
 
 11. [Understanding Promises in JavaScript](https://debunking-js.hashnode.dev/understanding-promises-in-javascript)
 
-12. [Understanding the `this` Keyword in JavaScript]()
+12. [Understanding the `this` Keyword in JavaScript](https://debunking-js.hashnode.dev/understanding-this-keyword-in-javascript)
 
-13. [The `new` Keyword in JavaScript]()
+13. [The `new` Keyword in JavaScript](https://debunking-js.hashnode.dev/the-new-keyword-in-javascript)
 
 14. [Spread vs Rest Operators in JavaScript](https://debunking-js.hashnode.dev/spread-vs-rest-operators-in-javascript)
 
-15. [Destructuring in JavaScript]()
+15. [Destructuring in JavaScript](https://debunking-js.hashnode.dev/destructuring-in-javascript)
 
-16. [JavaScript Modules: Import and Export Explained]()
+16. [JavaScript Modules: Import and Export Explained](https://debunking-js.hashnode.dev/javascript-modules)
 
 17. [Array Flatten in JavaScript]()
 
