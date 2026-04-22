@@ -37,7 +37,7 @@ const user = {
   city: 'Mumbai',
 };
 
-const name = user.name;
+const name4 = user.name;
 const age = user.age;
 const city = user.city;
 
@@ -48,13 +48,13 @@ const user2 = {
   city: 'Mumbai',
 };
 
-const { name1, age1, city1 } = user2;
+// const { name1, age1, city1 } = user2;
 
 // Default Values
 const user3 = {
   name: 'Shahbaz',
 };
 
-const { name2, age2 = 18 } = user3;
+// const { name2, age2 = 18 } = user3;
 
-console.log(age2); // 18
+// console.log(age2); // 18

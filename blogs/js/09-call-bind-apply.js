@@ -1,3 +1,4 @@
+// @ts-nocheck
 let a = 12;
 let b = 13;
 function sum() {
@@ -16,7 +17,7 @@ function sayHi() {
 
 sayHi(); // global object
 
-("use strict");
+('use strict');
 function sayHi() {
   console.log(this);
 }
@@ -24,7 +25,7 @@ function sayHi() {
 sayHi(); // undefined
 
 let user = {
-  name: "John",
+  name: 'John',
   age: 30,
 
   sayHi() {
@@ -38,12 +39,12 @@ user.sayHi(); // John
 // call
 
 function greet() {
-  console.log(this.animal, "typically sleep between", this.sleepDuration);
+  console.log(this.animal, 'typically sleep between', this.sleepDuration);
 }
 
 const obj = {
-  animal: "cats",
-  sleepDuration: "12 and 16 hours",
+  animal: 'cats',
+  sleepDuration: '12 and 16 hours',
 };
 
 greet.call(obj); // cats typically sleep between 12 and 16 hours

@@ -1,4 +1,7 @@
 class Car {
+  /**
+   * @param {string} brand
+   */
   constructor(brand) {
     this.brand = brand;
   }
@@ -7,10 +10,15 @@ class Car {
   }
 }
 
-const myCar = new Car("Toyota");
+const myCar = new Car('Toyota');
 myCar.start(); // Output: "Toyota is starting."
 
-class Car {
+class Car2 {
+  /**
+   * @param {string} brand
+   * @param {string} model
+   * @param {number} year
+   */
   constructor(brand, model, year) {
     this.brand = brand;
     this.model = model;
@@ -23,10 +31,14 @@ class Car {
   }
 }
 
-const myNewCar = new Car("Toyota", "Corolla", 2021);
+const myNewCar = new Car2('Toyota', 'Corolla', 2021);
 myNewCar.start(); // Output: "2021 Toyota Corolla is starting."
 
-class Car {
+class Car3 {
+  /**
+   * @param {string} brand
+   * @param {string} model
+   */
   constructor(brand, model) {
     this.brand = brand;
     this.model = model;
@@ -36,5 +48,5 @@ class Car {
   }
 }
 
-const myCar2 = new Car("Toyota", "Camry");
+const myCar2 = new Car3('Toyota', 'Camry');
 console.log(myCar2.describe()); // "This is a Toyota Camry"

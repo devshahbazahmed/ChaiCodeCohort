@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Syntax
 
 let user1 = new Object(); // "object constructor" syntax
@@ -7,7 +8,7 @@ let user2 = {}; // "object literal" syntax
 
 let user3 = {
   // an object
-  name: "John", // by key "name" store value "John"
+  name: 'John', // by key "name" store value "John"
   age: 30, // by key "age" store value 30
 };
 
@@ -19,15 +20,15 @@ console.log(user3.age);
 let user = {};
 
 // set
-user["likes birds"] = true;
+user['likes birds'] = true;
 
 // get
-console.log(user["likes birds"]); // true
+console.log(user['likes birds']); // true
 
 // Updating Object Properties
 
-ourDog.name = "Happy Camper"; // Using dot notation
-ourDog["name"] = "Happy Camper"; // Using bracket notation
+ourDog.name = 'Happy Camper'; // Using dot notation
+ourDog['name'] = 'Happy Camper'; // Using bracket notation
 
 // Looping
 

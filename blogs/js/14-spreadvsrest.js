@@ -1,5 +1,11 @@
 // Spread Operator
-
+/**
+ *
+ * @param {number} x
+ * @param {number} y
+ * @param {number} z
+ * @returns
+ */
 function sum(x, y, z) {
   return x + y + z;
 }
@@ -11,7 +17,11 @@ console.log(sum(...numbers)); // Expected output: 6
 console.log(sum.apply(null, numbers)); // Expected output: 6
 
 // Rest Operator
-
+/**
+ *
+ * @param  {...any} theArgs
+ * @returns
+ */
 function sum(...theArgs) {
   let total = 0;
   for (const arg of theArgs) {
@@ -29,12 +39,24 @@ const arr1 = [1, 2];
 const arr2 = [3, 4];
 const merged = [...arr1, ...arr2]; // [1, 2, 3, 4]
 
+/**
+ *
+ * @param {number} a
+ * @param {number} b
+ * @param {number} c
+ * @returns
+ */
 function sum(a, b, c) {
   return a + b + c;
 }
 const numbers1 = [1, 2, 3];
 sum(...numbers1); // Equivalent to sum(1, 2, 3)
 
+/**
+ *
+ * @param  {...any} args
+ * @returns
+ */
 function sum(...args) {
   return args.reduce((total, num) => total + num, 0);
 }
@@ -56,6 +78,13 @@ const obj2 = { ...obj1, c: 3 }; // { a: 1, b: 2, c: 3 }
 const merged2 = { ...obj1, ...obj2 }; // Right-most values override duplicates
 
 // Function Calls
+/**
+ *
+ * @param {number} x
+ * @param {number} y
+ * @param {number} z
+ * @returns
+ */
 function sum(x, y, z) {
   return x + y + z;
 }

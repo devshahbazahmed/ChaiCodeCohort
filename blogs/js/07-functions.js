@@ -1,3 +1,4 @@
+// @ts-nocheck
 function square(number) {
   return number * number;
 }
@@ -18,7 +19,7 @@ console.log(getRectArea(3, 4));
 hoisted(); // Logs "foo"
 
 function hoisted() {
-  console.log("foo");
+  console.log('foo');
 }
 
 console.log(notHoisted); // undefined
@@ -27,5 +28,5 @@ console.log(notHoisted); // undefined
 notHoisted(); // TypeError: notHoisted is not a function
 
 var notHoisted = function () {
-  console.log("bar");
+  console.log('bar');
 };

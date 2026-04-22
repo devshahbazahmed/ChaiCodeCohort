@@ -46,14 +46,14 @@ let double = (n) => n * 2;
 
 console.log(double(3)); // 6
 
-let sayHi = () => console.log("Hello!");
+let sayHi = () => console.log('Hello!');
 
 sayHi();
 
-let age = prompt("What is your age?", 18);
+let age = prompt('What is your age?', 18);
 
 let welcome =
-  age < 18 ? () => console.log("Hello!") : () => console.log("Greetings!");
+  age < 18 ? () => console.log('Hello!') : () => console.log('Greetings!');
 
 welcome();
 
@@ -62,6 +62,6 @@ const add = (a, b) => a + b;
 const setData = (prevData) => {
   return {
     ...prevData,
-    content: "lorem ipsum",
+    content: 'lorem ipsum',
   };
 };
