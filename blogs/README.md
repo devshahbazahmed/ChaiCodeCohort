@@ -72,11 +72,11 @@ Below are the live links for blogs which have been published on hashnode.com
 
 16. [JavaScript Modules: Import and Export Explained](https://debunking-js.hashnode.dev/javascript-modules)
 
-17. [Array Flatten in JavaScript]()
+17. [Array Flatten in JavaScript](https://debunking-js.hashnode.dev/array-flatten-in-javascript)
 
-18. [Template Literals in JavaScript]()
+18. [Template Literals in JavaScript](https://debunking-js.hashnode.dev/template-literals-in-javascript)
 
-19. [Callbacks in JavaScript: Why They Exist]()
+19. [Callbacks in JavaScript: Why They Exist](https://debunking-js.hashnode.dev/callbacks-in-javascript)
 
 20. [String Polyfills and Common Interview Methods in JavaScript]()
 
