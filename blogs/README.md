@@ -78,17 +78,15 @@ Below are the live links for blogs which have been published on hashnode.com
 
 19. [Callbacks in JavaScript: Why They Exist](https://debunking-js.hashnode.dev/callbacks-in-javascript)
 
-20. [String Polyfills and Common Interview Methods in JavaScript]()
+20. [String Polyfills and Common Interview Methods in JavaScript](https://debunking-js.hashnode.dev/string-polyfills-and-common-interview-methods-in-javascript)
 
-21. [Error Handling in JavaScript: Try, Catch, Finally]()
+21. [Error Handling in JavaScript: Try, Catch, Finally](https://debunking-js.hashnode.dev/error-handling-in-javascript)
 
-22. [Map and Set in JavaScript]()
+22. [Map and Set in JavaScript](https://debunking-js.hashnode.dev/map-and-set-in-javascript)
 
 23. [Synchronous and Asynchronous JavaScript]()
 
 24. [Async/Await in JavaScript: Writing Cleaner Asynchronous Code]()
-
-25. [Event Phases in DOM]()
 
 ## NodeJS
 
