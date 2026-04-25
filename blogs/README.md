@@ -84,9 +84,9 @@ Below are the live links for blogs which have been published on hashnode.com
 
 22. [Map and Set in JavaScript](https://debunking-js.hashnode.dev/map-and-set-in-javascript)
 
-23. [Synchronous and Asynchronous JavaScript]()
+23. [Synchronous and Asynchronous JavaScript](https://debunking-js.hashnode.dev/synchronous-vs-asynchronous-javascript)
 
-24. [Async/Await in JavaScript: Writing Cleaner Asynchronous Code]()
+24. [Async/Await in JavaScript: Writing Cleaner Asynchronous Code](https://debunking-js.hashnode.dev/async-await-in-javascript)
 
 ## NodeJS
 
