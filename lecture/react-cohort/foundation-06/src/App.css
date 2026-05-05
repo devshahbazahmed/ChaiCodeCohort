@@ -1,0 +1,46 @@
+.tab {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.tab > button {
+  font-size: 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 10px 20px;
+  background-color: #960c0c;
+}
+
+.tab > button:active {
+  scale: 0.95;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+  border: 2px solid gray;
+  border-radius: 20px;
+  width: fit-content;
+}
+
+form > button {
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 10px 20px;
+  background-color: #960c0c;
+}
