@@ -28,7 +28,10 @@ import jwt from 'jsonwebtoken';
  * - Keep JWT_SECRET secure and never commit it to version control
  */
 export function signToken(payload) {
-  // Your code here
+  const token = jwt.sign(payload, process.env.JWT_SECRET, {
+    expiresIn: process.env.JWT_EXPIRES_IN,
+  });
+  return token;
 }
 
 /**
@@ -66,5 +69,18 @@ export function signToken(payload) {
  * - Never skip verification for "performance" reasons
  */
 export function verifyToken(token) {
-  // Your code here
+  try {
+    const payload = jwt.verify(token, process.env.JWT_SECRET);
+    return payload;
+  } catch (error) {
+    if (error.name === 'JsonWebTokenError') {
+      throw new Error('invalid signature');
+    }
+
+    if (error.name === 'TokenExpiredError') {
+      throw new Error('jwt expired');
+    }
+
+    throw new Error('jwt malformed');
+  }
 }

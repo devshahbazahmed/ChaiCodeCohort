@@ -1,8 +1,8 @@
-# Blogs with their respective live links:
+# Blogs with their respective live links
 
 Below are the live links for blogs which have been published on hashnode.com
 
-## Git and Github:
+## Git and Github
 
 1. [Why Version Control Exists: The Pendrive Problem](https://thependriverpoblemversioncontrol.hashnode.dev/the-pendrive-problem)
 
@@ -10,7 +10,7 @@ Below are the live links for blogs which have been published on hashnode.com
 
 3. [Git for beginners: Basics and Essential Commands](https://gitforbeginnerscommands.hashnode.dev/git-for-beginners)
 
-## Networks and DNS:
+## Networks and DNS
 
 1. [DNS Record Types Explained](https://dnsmagic.hashnode.dev/dns-domain-name-system)
 
@@ -20,13 +20,13 @@ Below are the live links for blogs which have been published on hashnode.com
 
 4. [Getting started with cURL](https://curldeepdive.hashnode.dev/getting-started-with-curl)
 
-## Client-Server Architecture:
+## Client-Server Architecture
 
 1. [TCP vs UDP: When to Use What, and How TCP Relates to HTTP](https://tcpvsudpexplained.hashnode.dev/tcp-vs-udp-when-to-use-what)
 
 2. [TCP Working: 3-Way Handshake & Reliable Communication](https://tcp3wayhandshake.hashnode.dev/the-tcp-3-way-handshake)
 
-## HTML:
+## HTML
 
 1. [How a Browser Works: A Beginner-Friendly Guide to Browser Internals](https://browserwokingandinternals.hashnode.dev/how-a-browser-works)
 
@@ -34,11 +34,11 @@ Below are the live links for blogs which have been published on hashnode.com
 
 3. [Emmet for HTML: A Beginner’s Guide to Writing Faster Markup](https://htmlemmetfastermarkup.hashnode.dev/emmet-for-html)
 
-## CSS:
+## CSS
 
 1. [CSS Selectors 101: Targeting Elements with Precision](https://cssselectorstargetingelements.hashnode.dev/css-selectors-101)
 
-## JavaScript:
+## JavaScript
 
 1. [Understanding Variables and Datatypes in JavaScript](https://debunking-js.hashnode.dev/understanding-variables-and-datatypes-in-javascript)
 
