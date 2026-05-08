@@ -90,36 +90,32 @@ Below are the live links for blogs which have been published on hashnode.com
 
 ## NodeJS
 
-1. [What is Node.js? JavaScript on the Server Explained]()
+1. [What is Node.js? JavaScript on the Server Explained](https://knowingnodejsexpress.hashnode.dev/what-is-node-js)
 
-2. [Why Node.js is Perfect for Building fast Web Applications]()
+2. [Why Node.js is Perfect for Building fast Web Applications](https://knowingnodejsexpress.hashnode.dev/why-node-js-is-perfect-for-building-fast-web-applications)
 
-3. [Understanding NodeJS architecture]()
+3. [How Node.js Handles Multiple Requests with a Single Thread](https://knowingnodejsexpress.hashnode.dev/how-node-js-handles-multiple-requests-with-a-single-thread)
 
-4. [Global vs GlobalThis in Node.js]()
+4. [The Node.js Event Loop Explained]()
 
-5. [How Node.js Handles Multiple Requests with a Single Thread]()
+5. [Blocking vs Non-blocking Code in Node.js]()
 
-6. [The Node.js Event Loop Explained]()
+6. [Setting Up your first Node.js Application Step-by-Step]()
 
-7. [Blocking vs Non-blocking Code in Node.js]()
+7. [Async Code in Node.js: Callbacks and Promises]()
 
-8. [Setting Up your first Node.js Application Step-by-Step]()
+8. [REST API Design Made Simple with Express.js]()
 
-9. [Async Code in Node.js: Callbacks and Promises]()
+9. [Creating Routes and Handling Requests with Express]()
 
-10. [REST API Design Made Simple with Express.js]()
+10. [URL Parameters vs Query Strings in Express.js]()
 
-11. [Creating Routes and Handling Requests with Express]()
+11. [What is Middlewares in Express and How it Works]()
 
-12. [URL Parameters vs Query Strings in Express.js]()
+12. [JWT Authentication in Node.js Explained Simply]()
 
-13. [What is Middlewares in Express and How it Works]()
+13. [Sessions vs JWT vs Cookies: Understanding Authentication Approaches]()
 
-14. [JWT Authentication in Node.js Explained Simply]()
+14. [Handling File Uploads in Express with Multer]()
 
-15. [Sessions vs JWT vs Cookies: Understanding Authentication Approaches]()
-
-16. [Handling File Uploads in Express with Multer]()
-
-17. [Storing Uploaded Files and Serving Them in Express]()
+15. [Storing Uploaded Files and Serving Them in Express]()
