@@ -27,17 +27,74 @@ import mongoose from 'mongoose';
 
 const imageSchema = new mongoose.Schema(
   {
-    // Your schema fields here
+    originalName: {
+      type: String,
+      required: [true, 'Original Name is required'],
+      trim: true,
+      maxLength: [255, 'Original Name must not exceed 255 characters'],
+    },
+    filename: {
+      type: String,
+      required: [true, 'File name is required'],
+      unique: true,
+    },
+    mimetype: {
+      type: String,
+      required: [true, 'Mime type is required'],
+      enum: ['image/jpeg', 'image/png', 'image/gif'],
+    },
+    size: {
+      type: Number,
+      required: [true, 'Size is required'],
+      min: 1,
+      max: 5 * 1024 * 1024,
+    },
+    width: {
+      type: Number,
+      required: [true, 'Width is required'],
+      min: 1,
+    },
+    height: {
+      type: Number,
+      required: [true, 'Height is required'],
+      min: 1,
+    },
+    thumbnailFilename: {
+      type: String,
+      required: [true, 'Thumbnail filename is required'],
+    },
+    description: {
+      type: String,
+      optional: true,
+      trim: true,
+      maxLength: 500,
+      default: '',
+    },
+    tags: {
+      type: [String],
+      optional: true,
+      default: [],
+      validate: {
+        validator: function (value) {
+          return value.length <= 10;
+        },
+        message: 'Cannot add more than 10 tags',
+      },
+    },
+    uploadDate: {
+      type: Date,
+      default: Date.now(),
+    },
   },
   {
-    // Schema options here
+    timestamps: true,
   }
 );
 
 // TODO: Add indexes
-// imageSchema.index({ uploadDate: -1 });
-// imageSchema.index({ mimetype: 1, uploadDate: -1 });
-// imageSchema.index({ originalName: 'text', description: 'text' });
+imageSchema.index({ uploadDate: -1 });
+imageSchema.index({ mimetype: 1, uploadDate: -1 });
+imageSchema.index({ originalName: 'text', description: 'text' });
 
 // TODO: Create and export the Image model
-// export const Image = mongoose.model('Image', imageSchema);
+export const Image = mongoose.model('Image', imageSchema);
