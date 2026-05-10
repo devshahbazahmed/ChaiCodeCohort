@@ -96,13 +96,13 @@ Below are the live links for blogs which have been published on hashnode.com
 
 3. [How Node.js Handles Multiple Requests with a Single Thread](https://knowingnodejsexpress.hashnode.dev/how-node-js-handles-multiple-requests-with-a-single-thread)
 
-4. [The Node.js Event Loop Explained]()
+4. [The Node.js Event Loop Explained](https://knowingnodejsexpress.hashnode.dev/the-node-js-event-loop-explained)
 
-5. [Blocking vs Non-blocking Code in Node.js]()
+5. [Blocking vs Non-blocking Code in Node.js](https://knowingnodejsexpress.hashnode.dev/blocking-vs-non-blocking-code-in-node-js)
 
-6. [Setting Up your first Node.js Application Step-by-Step]()
+6. [Setting Up your first Node.js Application Step-by-Step](https://knowingnodejsexpress.hashnode.dev/setting-up-your-first-node-js-application-step-by-step)
 
-7. [Async Code in Node.js: Callbacks and Promises]()
+7. [Async Code in Node.js: Callbacks and Promises](https://knowingnodejsexpress.hashnode.dev/async-code-in-node-js)
 
 8. [REST API Design Made Simple with Express.js]()
 
