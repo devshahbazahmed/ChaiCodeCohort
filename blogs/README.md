@@ -112,10 +112,14 @@ Below are the live links for blogs which have been published on hashnode.com
 
 11. [What is Middlewares in Express and How it Works](https://knowingnodejsexpress.hashnode.dev/what-is-middleware-in-express-and-how-it-works)
 
-12. [JWT Authentication in Node.js Explained Simply]()
+12. [JWT Authentication in Node.js Explained Simply](https://knowingnodejsexpress.hashnode.dev/jwt-authentication-in-node-js-explained-simply)
 
-13. [Sessions vs JWT vs Cookies: Understanding Authentication Approaches]()
+13. [Sessions vs JWT vs Cookies: Understanding Authentication Approaches](https://knowingnodejsexpress.hashnode.dev/sessions-vs-jwt-vs-cookies)
 
-14. [Handling File Uploads in Express with Multer]()
+14. [Handling File Uploads in Express with Multer](https://knowingnodejsexpress.hashnode.dev/handling-file-uploads-in-express-with-multer)
 
-15. [Storing Uploaded Files and Serving Them in Express]()
+15. [Storing Uploaded Files and Serving Them in Express](https://knowingnodejsexpress.hashnode.dev/storing-uploaded-files-and-serving-them-in-express)
+
+## Linux
+
+1.  [Linux File System Hunting](https://knowingnodejsexpress.hashnode.dev/linux-file-system-hunting)
