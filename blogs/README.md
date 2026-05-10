@@ -104,13 +104,13 @@ Below are the live links for blogs which have been published on hashnode.com
 
 7. [Async Code in Node.js: Callbacks and Promises](https://knowingnodejsexpress.hashnode.dev/async-code-in-node-js)
 
-8. [REST API Design Made Simple with Express.js]()
+8. [REST API Design Made Simple with Express.js](https://knowingnodejsexpress.hashnode.dev/rest-api-design-made-simple-with-express-js)
 
-9. [Creating Routes and Handling Requests with Express]()
+9. [Creating Routes and Handling Requests with Express](https://knowingnodejsexpress.hashnode.dev/creating-routes-and-handling-requests-with-express)
 
-10. [URL Parameters vs Query Strings in Express.js]()
+10. [URL Parameters vs Query Strings in Express.js](https://knowingnodejsexpress.hashnode.dev/url-parameters-vs-query-strings-in-express-js)
 
-11. [What is Middlewares in Express and How it Works]()
+11. [What is Middlewares in Express and How it Works](https://knowingnodejsexpress.hashnode.dev/what-is-middleware-in-express-and-how-it-works)
 
 12. [JWT Authentication in Node.js Explained Simply]()
 
