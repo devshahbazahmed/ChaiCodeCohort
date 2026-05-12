@@ -122,4 +122,4 @@ Below are the live links for blogs which have been published on hashnode.com
 
 ## Linux
 
-1.  [Linux File System Hunting](https://knowingnodejsexpress.hashnode.dev/linux-file-system-hunting)
+1. [Linux File System Hunting](https://knowingnodejsexpress.hashnode.dev/linux-file-system-hunting)
