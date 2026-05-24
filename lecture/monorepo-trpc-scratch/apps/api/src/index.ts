@@ -1,7 +1,11 @@
 import express from 'express';
 import { createUserSchema } from '@monorepo-trpc-scratch/utils';
+import cors from 'cors';
 
 const app = express();
+
+app.use(express.json());
+app.use(cors());
 
 app.get('/', (req, res) => {
   return res.json({
@@ -26,7 +30,7 @@ app.post('/users', (req, res) => {
 
   return res.json({
     success: true,
-    message: 'User created ',
+    message: 'User created',
   });
 });
 
