@@ -1,0 +1,13 @@
+{
+  "name": "monorepo-trpc-scratch",
+  "private": true,
+  "scripts": {},
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.1.3",
+      "onFail": "download"
+    }
+  },
+  "type": "module"
+}
