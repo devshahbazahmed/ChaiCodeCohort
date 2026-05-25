@@ -205,13 +205,23 @@ settings:
 
 importers:
 
-  .: {}
+  .:
+    devDependencies:
+      turbo:
+        specifier: ^2.9.14
+        version: 2.9.14
 
   apps/api:
     dependencies:
+      '@monorepo-trpc-scratch/trpc':
+        specifier: workspace:*
+        version: link:../../packages/trpc
       '@monorepo-trpc-scratch/utils':
         specifier: workspace:*
         version: link:../../packages/utils
+      '@trpc/server':
+        specifier: ^11.17.0
+        version: 11.17.0(typescript@6.0.3)
       cors:
         specifier: ^2.8.6
         version: 2.8.6
@@ -237,9 +247,21 @@ importers:
 
   apps/web:
     dependencies:
+      '@monorepo-trpc-scratch/trpc':
+        specifier: workspace:*
+        version: link:../../packages/trpc
       '@monorepo-trpc-scratch/utils':
         specifier: workspace:*
         version: link:../../packages/utils
+      '@tanstack/react-query':
+        specifier: ^5.100.14
+        version: 5.100.14(react@19.2.4)
+      '@trpc/client':
+        specifier: ^11.17.0
+        version: 11.17.0(@trpc/server@11.17.0(typescript@5.9.3))(typescript@5.9.3)
+      '@trpc/react-query':
+        specifier: ^11.17.0
+        version: 11.17.0(@tanstack/react-query@5.100.14(react@19.2.4))(@trpc/client@11.17.0(@trpc/server@11.17.0(typescript@5.9.3))(typescript@5.9.3))(@trpc/server@11.17.0(typescript@5.9.3))(react@19.2.4)(typescript@5.9.3)
       axios:
         specifier: ^1.16.1
         version: 1.16.1
@@ -277,6 +299,16 @@ importers:
       typescript:
         specifier: ^5
         version: 5.9.3
+
+  packages/trpc:
+    dependencies:
+      '@trpc/server':
+        specifier: ^11.17.0
+        version: 11.17.0(typescript@6.0.3)
+    devDependencies:
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
 
   packages/utils:
     dependencies:
@@ -930,6 +962,66 @@ packages:
 
   '@tailwindcss/postcss@4.3.0':
     resolution: {integrity: sha512-Jm05Tjx+9yCLGv5qw1c+84Psds8MnyrEQYCB+FFk2lgGiUjlRqdxke4mVTuYrj2xnVZqKim2Apr5ySuQRYAw/w==}
+
+  '@tanstack/query-core@5.100.14':
+    resolution: {integrity: sha512-5X41dGpxgeaHISCRW2oYwcSycZeULZzAunaudXT9ov1KOTj9xwt0CH6hbwqP1/z74ZWF7rYFnDpyYH07XFcZew==}
+
+  '@tanstack/react-query@5.100.14':
+    resolution: {integrity: sha512-oOr6aRdSFEwWhzxEkD/9ZcItM3+LjBSkeVmadWKwUssAHTsqd/7bOjWrX4AbvEkoEhgAxzN0Xk6H/aYzXiYBAw==}
+    peerDependencies:
+      react: ^18 || ^19
+
+  '@trpc/client@11.17.0':
+    resolution: {integrity: sha512-KpJBFrbKTDeVCFv/3ckL1XBBH5Yssn8hethI/rUy7GIpTj+VzjtPjykDqJpzobuVOz+d26cXCSu1t4I6MYI5Zg==}
+    hasBin: true
+    peerDependencies:
+      '@trpc/server': 11.17.0
+      typescript: '>=5.7.2'
+
+  '@trpc/react-query@11.17.0':
+    resolution: {integrity: sha512-AGcl5YAF8NnhBmyJ6PqJqKb1M5VTGSoNRNqJ3orct4o4epdcg0GWhW+qT9q6gPzs/2ImIwYCdfFpgNGdZ9yLHA==}
+    peerDependencies:
+      '@tanstack/react-query': ^5.80.3
+      '@trpc/client': 11.17.0
+      '@trpc/server': 11.17.0
+      react: '>=18.2.0'
+      typescript: '>=5.7.2'
+
+  '@trpc/server@11.17.0':
+    resolution: {integrity: sha512-jbAOUe0PpUTCYqziyu+8vYXZdDXPudZgnEhWCQ2NjKnVEjfE93RqHTt1oycZJv/HNf51YlRXfEEwSIAbb161rw==}
+    hasBin: true
+    peerDependencies:
+      typescript: '>=5.7.2'
+
+  '@turbo/darwin-64@2.9.14':
+    resolution: {integrity: sha512-t7QiPflaEyBE4oayeZtSmu4mEfjgIrcNlNNl1z1dmIVPqEdtA7+CfTf8d7KXsOGPh6aNgWjKxyvQg9uGfDQF+A==}
+    cpu: [x64]
+    os: [darwin]
+
+  '@turbo/darwin-arm64@2.9.14':
+    resolution: {integrity: sha512-d23147mC9BsCPA9mJ0h/ubcpbRgcJBXbcG3+Vq7YLhjz3IXuvQsJ1UXH8f4MD76ZjJ4m/E4aRdJV+MW88CDfbw==}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@turbo/linux-64@2.9.14':
+    resolution: {integrity: sha512-P3ZKB5tuUDdDQWuAsACGUR1qv9W7BNWxdxqVJ0kZNuNNPRaVYTPPikLcp79+GiEcW3npsR+KyP38lnQiBc5aSA==}
+    cpu: [x64]
+    os: [linux]
+
+  '@turbo/linux-arm64@2.9.14':
+    resolution: {integrity: sha512-ZRTlzcUMrrPv9ZuDzRF9n60Ym13bKeG9jDB8WjxyLhWNzV+AJQN+zdpIk3NJYf2zQsGUm1mNar2P0elRzLw25g==}
+    cpu: [arm64]
+    os: [linux]
+
+  '@turbo/windows-64@2.9.14':
+    resolution: {integrity: sha512-exanwN6sIduZwykYeiTQj8kCmOhazP5WOz3bvXMcYtjhL6Z3iRWLewKrXCBq0bqwSP3iBMb/AerRCnHI4lx46A==}
+    cpu: [x64]
+    os: [win32]
+
+  '@turbo/windows-arm64@2.9.14':
+    resolution: {integrity: sha512-fVdCsnmYoKICsycbWuuGp6Jvi51/3G/UluFWuAUCvR8PIW5IJkAk5BM9UF8PSm0Q2IphWHFZjYEgjHsh3B9y/g==}
+    cpu: [arm64]
+    os: [win32]
 
   '@tybys/wasm-util@0.10.2':
     resolution: {integrity: sha512-RoBvJ2X0wuKlWFIjrwffGw1IqZHKQqzIchKaadZZfnNpsAYp2mM0h36JtPCjNDAHGgYez/15uMBpfGwchhiMgg==}
@@ -2543,6 +2635,10 @@ packages:
     engines: {node: '>=18.0.0'}
     hasBin: true
 
+  turbo@2.9.14:
+    resolution: {integrity: sha512-BQqXRr4UoWI3UPFrtznCLykYHxwxWh53iCB57x092jPMjIlW1wnm3N895g5irpiXmnxUhREBB0n6+y8BHhs4nw==}
+    hasBin: true
+
   type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
     engines: {node: '>= 0.8.0'}
@@ -3159,6 +3255,52 @@ snapshots:
       '@tailwindcss/oxide': 4.3.0
       postcss: 8.5.15
       tailwindcss: 4.3.0
+
+  '@tanstack/query-core@5.100.14': {}
+
+  '@tanstack/react-query@5.100.14(react@19.2.4)':
+    dependencies:
+      '@tanstack/query-core': 5.100.14
+      react: 19.2.4
+
+  '@trpc/client@11.17.0(@trpc/server@11.17.0(typescript@5.9.3))(typescript@5.9.3)':
+    dependencies:
+      '@trpc/server': 11.17.0(typescript@5.9.3)
+      typescript: 5.9.3
+
+  '@trpc/react-query@11.17.0(@tanstack/react-query@5.100.14(react@19.2.4))(@trpc/client@11.17.0(@trpc/server@11.17.0(typescript@5.9.3))(typescript@5.9.3))(@trpc/server@11.17.0(typescript@5.9.3))(react@19.2.4)(typescript@5.9.3)':
+    dependencies:
+      '@tanstack/react-query': 5.100.14(react@19.2.4)
+      '@trpc/client': 11.17.0(@trpc/server@11.17.0(typescript@5.9.3))(typescript@5.9.3)
+      '@trpc/server': 11.17.0(typescript@5.9.3)
+      react: 19.2.4
+      typescript: 5.9.3
+
+  '@trpc/server@11.17.0(typescript@5.9.3)':
+    dependencies:
+      typescript: 5.9.3
+
+  '@trpc/server@11.17.0(typescript@6.0.3)':
+    dependencies:
+      typescript: 6.0.3
+
+  '@turbo/darwin-64@2.9.14':
+    optional: true
+
+  '@turbo/darwin-arm64@2.9.14':
+    optional: true
+
+  '@turbo/linux-64@2.9.14':
+    optional: true
+
+  '@turbo/linux-arm64@2.9.14':
+    optional: true
+
+  '@turbo/windows-64@2.9.14':
+    optional: true
+
+  '@turbo/windows-arm64@2.9.14':
+    optional: true
 
   '@tybys/wasm-util@0.10.2':
     dependencies:
@@ -5041,6 +5183,15 @@ snapshots:
       esbuild: 0.28.0
     optionalDependencies:
       fsevents: 2.3.3
+
+  turbo@2.9.14:
+    optionalDependencies:
+      '@turbo/darwin-64': 2.9.14
+      '@turbo/darwin-arm64': 2.9.14
+      '@turbo/linux-64': 2.9.14
+      '@turbo/linux-arm64': 2.9.14
+      '@turbo/windows-64': 2.9.14
+      '@turbo/windows-arm64': 2.9.14
 
   type-check@0.4.0:
     dependencies:
