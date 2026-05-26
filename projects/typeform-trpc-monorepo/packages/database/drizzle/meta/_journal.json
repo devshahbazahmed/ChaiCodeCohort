@@ -8,6 +8,13 @@
       "when": 1779780125372,
       "tag": "0000_watery_cannonball",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1779804974281,
+      "tag": "0001_furry_blindfold",
+      "breakpoints": true
     }
   ]
 }
