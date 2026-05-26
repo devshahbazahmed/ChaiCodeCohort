@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { GlobalProviders } from "../providers/global";
+import { GlobalProviders } from "~/providers/global";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -13,8 +13,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "TypeForm",
-  description: "Form Creation",
+  title: "Streamyst",
+  description: "Media Forwarding",
 };
 
 export default function RootLayout({

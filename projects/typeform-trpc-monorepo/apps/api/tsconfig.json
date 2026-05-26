@@ -10,7 +10,8 @@
     // We don't need these for our final build
     "declarationMap": false,
     "declaration": false,
-    "sourceMap": false
+    "sourceMap": false,
+    "ignoreDeprecations": "6.0"
   },
   "include": ["src"],
   "ts-node": {

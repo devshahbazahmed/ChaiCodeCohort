@@ -2,7 +2,7 @@ import { defineConfig } from "tsup";
 
 export default defineConfig({
   entry: ["./src/index.ts"],
-  noExternal: ["@repo"],
+  noExternal: ["@typeform"], // transpile packages starting with `@typeform` and their dependencies
   splitting: false,
   bundle: true,
   outDir: "./dist",
