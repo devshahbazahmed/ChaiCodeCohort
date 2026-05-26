@@ -1,7 +1,11 @@
-import { publicProcedure, router } from "../../trpc";
+import { authenticatedProcedure, publicProcedure, router } from "../../trpc";
 import {
   createUserWithEmailAndPasswordInput,
   createUserWithEmailAndPasswordOutput,
+  getLoggedInUserInfoInput,
+  getLoggedInUserInfoOutput,
+  signInUserWithEmailAndPasswordInput,
+  signInUserWithEmailAndPasswordOutput,
 } from "../auth/model";
 import { userService } from "../../services";
 
@@ -39,6 +43,48 @@ export const authRouter = router({
 
       return {
         id,
+      };
+    }),
+  signInUserWithEmailAndPassword: publicProcedure
+    .meta({
+      openapi: {
+        method: "POST",
+        path: getPath("/signInUserWithEmailAndPassword"),
+        tags: TAGS,
+      },
+    })
+    .input(signInUserWithEmailAndPasswordInput)
+    .output(signInUserWithEmailAndPasswordOutput)
+    .mutation(async ({ input, ctx }) => {
+      const { email, password } = input;
+      const { id, token } = await userService.signInUserWithEmailAndPassword({ email, password });
+
+      ctx.setCookie("token", token, {
+        httpOnly: true,
+        secure: false,
+        sameSite: "strict",
+        maxAge: 30 * 24 * 60 * 60 * 1000,
+      });
+      return {
+        id,
+      };
+    }),
+  getLoggedInUserInfo: authenticatedProcedure
+    .meta({
+      openapi: {
+        method: "GET",
+        path: getPath("/getLoggedInUserInfo"),
+        tags: TAGS,
+      },
+    })
+    .input(getLoggedInUserInfoInput)
+    .output(getLoggedInUserInfoOutput)
+    .query(async ({ ctx }) => {
+      const { id, fullName, email } = await userService.getUserInfoById(ctx.user.id);
+      return {
+        id,
+        fullName,
+        email,
       };
     }),
 });

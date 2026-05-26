@@ -9,6 +9,7 @@ import { apiReference } from "@scalar/express-api-reference";
 import { serverRouter, createContext } from "@repo/trpc/server";
 
 import { env } from "./env";
+import cookieParser from "cookie-parser";
 
 export const app = express();
 const openApiDocument = generateOpenApiDocument(serverRouter, {
@@ -24,6 +25,7 @@ app.use(
   }),
 );
 
+app.use(cookieParser());
 app.use(express.json());
 
 app.get("/", (req, res) => {

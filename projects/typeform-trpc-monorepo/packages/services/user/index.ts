@@ -1,11 +1,13 @@
 import bcrypt from "bcryptjs";
-import { db, eq } from "@repo/database";
+import { db, eq, isConfig } from "@repo/database";
 import { usersTable } from "@repo/database/models/user";
 import {
   createUserWithEmailAndPassword,
   generateUserTokenPayload,
   type GenerateUserTokenPayload,
   type CreateUserWithEmailAndPassword,
+  SignInUserWithEmailAndPassword,
+  signInUserWithEmailAndPassword,
 } from "./model";
 import * as JWT from "jsonwebtoken";
 import { env } from "../env";
@@ -51,5 +53,58 @@ export default class UserService {
       id: result[0].id,
       token,
     };
+  }
+
+  public async signInUserWithEmailAndPassword(payload: SignInUserWithEmailAndPassword) {
+    const { email, password } = await signInUserWithEmailAndPassword.parseAsync(payload);
+
+    const existingUser = await this.getUserByEmail(email);
+
+    if (!existingUser) {
+      throw new Error("User with this email does not exists");
+    }
+
+    if (!existingUser.passwordHash) {
+      throw new Error("Invalid authentication method");
+    }
+
+    const isValid = await bcrypt.compare(password, existingUser.passwordHash);
+
+    if (!isValid) {
+      throw new Error("Invalid email address or password");
+    }
+
+    const { token } = await this.generateUserToken({ id: existingUser.id });
+
+    return {
+      id: existingUser.id,
+      token,
+    };
+  }
+
+  public async getUserInfoById(id: string) {
+    const user = await db
+      .select({
+        id: usersTable.id,
+        fullName: usersTable.fullName,
+        email: usersTable.email,
+      })
+      .from(usersTable)
+      .where(eq(usersTable.id, id));
+
+    if (!user || user.length === 0) {
+      throw new Error("User with this id does not exist");
+    }
+
+    return user[0]!;
+  }
+
+  public async verifyAndDecodeUserToken(token: string) {
+    try {
+      const payload = JWT.verify(token, env.JWT_SECRET) as GenerateUserTokenPayload;
+      return payload;
+    } catch (error) {
+      throw new Error("Invalid token");
+    }
   }
 }
