@@ -1,0 +1,12 @@
+// ex.piyushgarg.online {
+//     tls piyush@piyushgarg.online
+
+//     handle {
+//         reverse_proxy nodejs-server:8000 {
+//             header_up Host {host}
+//             header_up X-Real-IP {remote}
+//             header_up X-Forwarded-For {remote}
+//             header_up X-Forwarded-Proto {scheme}
+//         }
+//     }
+// }
