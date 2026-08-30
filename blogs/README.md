@@ -128,6 +128,18 @@ Below are the live links for blogs which have been published on hashnode.com
 
 3. [How React Works Internally:Virtual DOM, Reconciliation, and Rendering](https://fundamentalsofreact.hashnode.dev/how-react-works-internally)
 
+4. [State Management: Context API, Prop Drilling, React.memo, useMemo, and useCallback](https://fundamentalsofreact.hashnode.dev/state-management-context-api-prop-drilling-react-memo-usememo-and-usecallback)
+
+## Next.js
+
+1. [Next.js Explained:Why It Became the Default React Framework?](https://fundamentalsofreact.hashnode.dev/next-js-explained)
+
+2. [Modern Next.js:Routing, Layouts, Server Components, API Routes & Server Actions](https://fundamentalsofreact.hashnode.dev/modern-next-js)
+
+## TypeScript
+
+1. [Mastering TypeScript:Interfaces, Generics, Unions Explained](https://debunking-js.hashnode.dev/mastering-typescript)
+
 ## Linux
 
 1. [Linux File System Hunting](https://knowingnodejsexpress.hashnode.dev/linux-file-system-hunting)
